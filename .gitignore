@@ -1,0 +1,13 @@
+# I am selective about what I want to revision, you may not want this.
+/*
+
+# You probably want to ignore all the "dot" files in your home
+# directory, since they mostly contain local application state data.
+/.*
+
+# but... some dot files you probably do *not* want ignored are
+# listed here:
+!/.bash*
+!/.vimrc
+!/.gitignore
+!/bin
