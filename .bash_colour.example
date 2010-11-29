@@ -1,0 +1,11 @@
+# List of colour code
+BLACK=30
+BLUE=34
+GREEN=32
+CYAN=36
+RED=31
+PURPLE=35
+BROWN=33
+
+# Set colour
+PROMPT_COLOUR=${GREEN}

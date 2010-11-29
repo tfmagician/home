@@ -8,6 +8,7 @@
 # but... some dot files you probably do *not* want ignored are
 # listed here:
 !/.bash_aliases
+!/.bash_colour.example
 !/.bash_profile
 !/.bashrc
 !/.selected_editor

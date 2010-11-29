@@ -26,8 +26,14 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
+# read colour setting.
+PROMPT_COLOUR=32
+if [ -f ~/.bash_colour ]; then
+    . ~/.bash_colour
+fi
+
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\033[01;${PROMPT_COLOUR}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='\u@\h:\w\$ '
 fi
