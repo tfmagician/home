@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/vim-quickrun"]
 	path = .vim/bundle/vim-quickrun
 	url = https://github.com/thinca/vim-quickrun.git
+[submodule ".vim/bundle/git-vim"]
+	path = .vim/bundle/git-vim
+	url = https://github.com/motemen/git-vim.git

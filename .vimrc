@@ -19,7 +19,7 @@ set shiftwidth=2
 set softtabstop=0
 " Display statusline.
 set laststatus=2
-set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%d/%m/%Y-%H:%M\")}%=\ col:%4c\ lin:%4l\/%4L\ %4P
+set statusline=%<%F%h%m%r%h%w%y\ \|\ %{&ff}\ \|\ %{strftime(\"%d/%m/%Y-%H:%M\")}%=\ branch:\ %{GitBranch()}\ \|\ col:%4c\ \|\ lin:%4l\/%4L\ \|\ %4P
 " Trim space of end line.
 function! RTrim()
   let s:cursor = getpos(".")

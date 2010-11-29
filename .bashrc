@@ -32,8 +32,13 @@ if [ -f ~/.bash_colour ]; then
     . ~/.bash_colour
 fi
 
+# show git branch for prompt.
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\[\1\]/'
+}
+
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;${PROMPT_COLOUR}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\033[01;${PROMPT_COLOUR}m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[00;33m\]$(parse_git_branch)\[\033[00m\]\$ '
 else
     PS1='\u@\h:\w\$ '
 fi
