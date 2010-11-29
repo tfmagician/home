@@ -9,6 +9,7 @@
 # listed here:
 !/.bash_aliases
 !/.bash_profile
+!/.bash_history
 !/.bashrc
 !/.vimrc
 !/.gitignore
