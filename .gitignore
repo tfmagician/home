@@ -7,7 +7,9 @@
 
 # but... some dot files you probably do *not* want ignored are
 # listed here:
-!/.bash*
+!/.bash_aliases
+!/.bash_profile
+!/.bashrc
 !/.vimrc
 !/.gitignore
 !/bin
