@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/tfmagician'
+let g:netrw_dirhist_2='/home/tfmagician/simple_backup'
+let g:netrw_dirhist_3='/home/tfmagician/simple_backup/simple_backup'
+let g:netrw_dirhist_4='/home/tfmagician/gmail'
+let g:netrw_dirhist_5='/home/tfmagician/.vim/bundle/vim-ref'
+let g:netrw_dirhist_6='/home/tfmagician/.vim'

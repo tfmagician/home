@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>What can PHP do?</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="intro-whatis.html">What is PHP?</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="tutorial.html">A simple tutorial</a></div>
+ <div class="up"><a href="introduction.html">Introduction</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="intro-whatcando" class="section">
+   <div class="info"><h1 class="title">What can PHP do?</h1></div>
+   <p class="para">
+    Anything. PHP is mainly focused on server-side scripting,
+    so you can do anything any other CGI program can do, such
+    as collect form data, generate dynamic page content, or
+    send and receive cookies. But PHP can do much more.
+   </p>
+   <p class="para">
+    There are three main areas where PHP scripts are used.
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       Server-side scripting. This is the most traditional
+       and main target field for PHP. You need three things
+       to make this work. The PHP parser (CGI or server
+       module), a web server and a web browser. You need to
+       run the web server, with a connected PHP installation.
+       You can access the PHP program output with a web browser,
+       viewing the PHP page through the server. All these can
+       run on your home machine if you are just experimenting
+       with PHP programming. See the
+       <a href="install.html" class="link">installation instructions</a>
+       section for more information.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       Command line scripting. You can make a PHP script
+       to run it without any server or browser.
+       You only need the PHP parser to use it this way.
+       This type of usage is ideal for scripts regularly
+       executed using cron (on *nix or Linux) or Task Scheduler (on
+       Windows). These scripts can also be used for simple text
+       processing tasks. See the section about
+       <a href="features.commandline.html" class="link">Command line usage of PHP</a>
+       for more information.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       Writing desktop applications. PHP is probably
+       not the very best language to create a desktop
+       application with a graphical user interface, but if
+       you know PHP very well, and would like to use some
+       advanced PHP features in your client-side applications
+       you can also use PHP-GTK to write such programs. You also
+       have the ability to write cross-platform applications this
+       way. PHP-GTK is an extension to PHP, not available in
+       the main distribution. If you are interested
+       in PHP-GTK, visit <a href="http://gtk.php.net/" class="link external">&raquo; its
+       own website</a>.
+      </span>
+     </li>
+    </ul>
+   </p>
+   <p class="para">
+    PHP can be used on all major operating systems, including
+    Linux, many Unix variants (including HP-UX, Solaris and OpenBSD),
+    Microsoft Windows, Mac OS X, RISC OS, and probably others.
+    PHP has also support for most of the web servers today. This
+    includes Apache, Microsoft Internet Information Server,
+    Personal Web Server, Netscape and iPlanet servers, Oreilly
+    Website Pro server, Caudium, Xitami, OmniHTTPd, and many
+    others. For the majority of the servers, PHP has a module,
+    for the others supporting the CGI standard, PHP can work
+    as a CGI processor.
+   </p>
+   <p class="para">
+    So with PHP, you have the freedom of choosing an operating
+    system and a web server. Furthermore, you also have the choice
+    of using procedural programming or object oriented
+    programming, or a mixture of them. Although not every
+    standard OOP feature is implemented in PHP 4,
+    many code libraries and large applications (including
+    the PEAR library) are written only using OOP code. PHP 5 fixes the
+    OOP related weaknesses of PHP 4, and introduces a complete object
+    model.
+   </p>
+   <p class="para">
+    With PHP you are not limited to output HTML. PHP&#039;s abilities
+    includes outputting images, PDF files and even Flash movies
+    (using libswf and Ming) generated on the fly. You can also
+    output easily any text, such as XHTML and any other XML file.
+    PHP can autogenerate these files, and save them in the file
+    system, instead of printing it out, forming a server-side
+    cache for your dynamic content.
+   </p>
+   <p class="para">
+    One of the strongest and most significant features in PHP is its
+    support for a wide range of databases. Writing a database-enabled
+    web page is incredibly simple. The following databases are currently
+    supported:
+    <blockquote class="blockquote">
+     <ul class="simplelist">
+      <li class="member">Adabas D</li>
+      <li class="member">dBase</li>
+      <li class="member">Empress</li>
+      <li class="member">FilePro (read-only)</li>
+      <li class="member">Hyperwave</li>
+      <li class="member">IBM DB2</li>
+      <li class="member">Informix</li>
+      <li class="member">Ingres</li>
+      <li class="member">InterBase</li>
+      <li class="member">FrontBase</li>
+      <li class="member">mSQL</li>
+      <li class="member">Direct MS-SQL</li>
+      <li class="member">MySQL</li>
+      <li class="member">ODBC</li>
+      <li class="member">Oracle (OCI7 and OCI8)</li>
+      <li class="member">Ovrimos</li>
+      <li class="member">PostgreSQL</li>
+      <li class="member">SQLite</li>
+      <li class="member">Solid</li>
+      <li class="member">Sybase</li>
+      <li class="member">Velocis</li>
+      <li class="member">Unix dbm</li>
+     </ul>
+    </blockquote>
+    We also have a database abstraction extension (named PDO) allowing you
+    to transparently use any database supported by that extension.
+    Additionally PHP supports ODBC, the Open Database Connection
+    standard, so you can connect to any other database supporting
+    this world standard.
+   </p>
+   <p class="para">
+    PHP also has support for talking to other services using protocols
+    such as LDAP, IMAP, SNMP, NNTP, POP3, HTTP, COM (on Windows) and
+    countless others. You can also open raw network sockets and
+    interact using any other protocol. PHP has support for the WDDX
+    complex data exchange between virtually all Web programming
+    languages. Talking about interconnection, PHP has support for
+    instantiation of Java objects and using them transparently
+    as PHP objects. You can also use our CORBA extension to
+    access remote objects.
+   </p>
+   <p class="para">
+    PHP has extremely useful text processing features, from the
+    POSIX Extended or Perl regular expressions to parsing XML
+    documents. For parsing and accessing XML documents, PHP 4
+    supports the SAX and DOM standards, and you can also use the
+    XSLT extension to transform XML documents. PHP 5 standardizes
+    all the XML extensions on the solid base of libxml2 and extends
+    the feature set adding SimpleXML and XMLReader support.
+   </p>
+   <p class="para">
+    At last but not least, we have many other interesting
+    extensions, the mnoGoSearch search engine functions,
+    the IRC Gateway functions, many compression utilities
+    (gzip, bz2, zip), calendar conversion, translation...
+   </p>
+   <p class="para">
+    As you can see this page is not enough to list all
+    the features and benefits PHP can offer. Read on in
+    the sections about <a href="install.html" class="link">installing
+    PHP</a>, and see the <a href="funcref.html" class="link">function
+    reference</a> part for explanation of the extensions
+    mentioned here.
+   </p>
+  </div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="intro-whatis.html">What is PHP?</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="tutorial.html">A simple tutorial</a></div>
+ <div class="up"><a href="introduction.html">Introduction</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>

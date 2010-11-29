@@ -13,5 +13,6 @@
 !/.bashrc
 !/.selected_editor
 !/.vimrc
+!/.vim
 !/.gitignore
 !/bin
