@@ -11,6 +11,7 @@
 !/.bash_profile
 !/.bash_history
 !/.bashrc
+!/.selected_editor
 !/.vimrc
 !/.gitignore
 !/bin
