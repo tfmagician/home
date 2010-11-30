@@ -1,0 +1,29 @@
+# Editor for writing a comment.
+[core]
+	editor = vim
+# Able to push current and tracking branch only.
+[push]
+	default = tracking
+# User settings.
+[user]
+	name = tfmagician
+	email = tfmagician@gmail.com
+# Auto coloring.
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+# Alias settings.
+[alias]
+  branch-merged = branch --merged
+  branch-no-merged = branch --no-merged
+  log-with-changed-files = log --stat
+  log-with-diff = log -p
+  log-short = la = log --pretty=\"format:%ad %h (%an): %s\" --date=short
+  log-oneline = log --pretty=oneline
+  log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+  diff-staged = diff --staged
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
