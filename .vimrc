@@ -17,6 +17,8 @@ set tabstop=2
 set shiftwidth=2
 " If this sets 0, vim will insert same number of spaces as shiftwidth setting value.
 set softtabstop=0
+" Auto indenting.
+set autoindent
 " Display statusline.
 set laststatus=2
 set statusline=\|\ %<%F%h%m%r%h%w%y\ \|\ %{&ff}\ \|\ %{strftime(\"%d/%m/%Y-%H:%M\")}%=\ branch:\ %{GitBranch()}\ \|\ col:%4c\ \|\ lin:%4l\/%4L\ \|\%4P\ \|
