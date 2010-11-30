@@ -6,7 +6,7 @@ HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 HISTCONTROL=ignoreboth
 
 # show executed time in the history.
-HISTTIMEFORMAT='%D %T'
+HISTTIMEFORMAT='%D %T '
 
 # append to the history file.
 shopt -s histappend
@@ -71,3 +71,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+# add ~/bin directory to PATH variable.
+PATH=${PATH}:~/bin
