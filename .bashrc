@@ -74,3 +74,6 @@ fi
 
 # add ~/bin directory to PATH variable.
 PATH=${PATH}:~/bin
+
+# select an editor to edit git commit
+GIT_EDITOR=vim
