@@ -47,6 +47,8 @@ alias free='free -m'
 alias ehosts='sudo vi /etc/hosts'
 # Shortcut to remove temporary files using by cakephp.
 alias cake-clean-cache="find ./tmp/cache -type f -name 'cake_*' -exec rm {} \;"
+# Shortcut to log commands.
+alias logging-commands="script `date +%Y%m%d%H%M%S`.log"
 
 ###############################################################
 # Functions
