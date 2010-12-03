@@ -29,3 +29,4 @@
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
   push-and-track = push -u
   checkout-and-track = checkout -t  # usage: checkout-and-track [remote]/[branch]
+  find-commit = "!sh -c 'git log -S$1 --pretty=oneline --abbrev-commit $0'" # usage: find-commit [file] [string]
