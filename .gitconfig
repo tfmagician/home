@@ -30,3 +30,9 @@
   push-and-track = push -u
   checkout-and-track = checkout -t  # usage: checkout-and-track [remote]/[branch]
   find-commit = "!sh -c 'git log -S$1 --pretty=oneline --abbrev-commit $0'" # usage: find-commit [file] [string]
+  remote-add-and-track = "!sh -c 'git remote add origin $0 && \
+                                  git push origin master && \
+                                  git checkout -b tmp && \
+                                  git branch -d master && \
+                                  git checkout -t origin/master && \
+                                  git branch -d tmp'" # usage: remote-add-and-track [url]
