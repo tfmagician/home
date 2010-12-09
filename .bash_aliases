@@ -49,6 +49,8 @@ alias ehosts='sudo vi /etc/hosts'
 alias cake-clean-cache="find ./tmp/cache -type f -name 'cake_*' -exec rm {} \;"
 # Shortcut to log commands.
 alias logging-commands="script `date +%Y%m%d%H%M%S`.log"
+# grep for line encoding.
+alias grep-crlf='grep -UIlr ""'
 
 ###############################################################
 # Functions
