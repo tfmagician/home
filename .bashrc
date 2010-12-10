@@ -1,6 +1,11 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# load git-completion.bash for Mac OS X
+if [ -f /usr/local/git/share/git-completion ]; then
+  . /usr/local/git/share/git-completion
+fi
+
 # don't put duplicate lines in the history.
 HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 HISTCONTROL=ignoreboth
