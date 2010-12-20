@@ -17,6 +17,9 @@
   grep = auto
 # Alias settings.
 [alias]
+  feature = flow feature
+  hotfix = flow hotfix
+  release = flow release
   branch-merged = branch --merged
   branch-no-merged = branch --no-merged
   log-with-changed-files = log --stat
