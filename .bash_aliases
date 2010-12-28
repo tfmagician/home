@@ -85,3 +85,11 @@ ssh-copy-id() {
   fi
   cat .ssh/id_rsa.pub | ssh ${1} 'cat >> .ssh/authorized_keys'
 }
+
+# generates random password.
+random-numeric() {
+  cat /dev/urandom | tr -dc '0-9' | fold -w ${1} | head
+}
+random-alphanumeric() {
+  cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1} | head
+}
