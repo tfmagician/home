@@ -52,7 +52,7 @@ alias cake-checkstyle="phpcs --standard=Cake --ignore=vendors,plugins,tests --ex
 # Find out of coding standards for Zend.
 alias zend-checkstyle="phpcs --standard=Zend --ignore=vendors,plugins,tests --extensions=php ./"
 # Find out of coding standards for Bergmenn.
-alias bergmenn-checkstyle="phpcs --standard=Bergmenn --ignore=vendors,plugins,tests --extensions=php ./"
+alias bergmenn-checkstyle="phpcs --standard=Bergmenn --ignore=vendors,plugins,tests,config --extensions=php ./"
 # Shortcut to log commands.
 alias logging-commands="script `date +%Y%m%d%H%M%S`.log"
 # grep for line encoding.
