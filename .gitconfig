@@ -18,6 +18,7 @@
 # Alias settings.
 [alias]
   pull-all = "!sh -c 'git pull && git submodule update'"
+  push-all = "!sh -c 'git push && git push origin refs/tags/*'"
   feature = flow feature
   hotfix = flow hotfix
   release = flow release
