@@ -45,8 +45,16 @@ alias free='free -m'
 
 # Shortcut to edit the hosts file.
 alias ehosts='sudo vi /etc/hosts'
-# Shortcut to remove temporary files using by cakephp.
+# Shortcuts for cakephp.
 alias cake-clean-cache="find ./tmp/cache -type f -name 'cake_*' -exec rm {} \;"
+alias cake-fixtures="cd ./tests/fixtures"
+alias cake-cases="cd ./tests/cases"
+alias cake-models="cd ./models"
+alias cake-behaviors="cd ./models/behaviors"
+alias cake-datasources="cd ./models/datasorces"
+alias cake-controllers="cd ./controllers"
+alias cake-components="cd ./controllers/components"
+alias cake-shells="cd ./vendors/shells"
 # Find out of coding standards for CakePHP.
 alias cake-checkstyle="phpcs --standard=Cake --ignore=vendors,plugins,tests --extensions=php ./"
 # Find out of coding standards for Zend.
@@ -63,7 +71,7 @@ alias grep-crlf='grep -UIlr ""'
 ###############################################################
 
 # Shortcut to edit the program and this test file togather for CakePHP.
-vicake() {
+cake-vi() {
   if [ ${#} -ne 1 ]; then
     echo 'You must set the path to the program that you want to edit the first argument.';
     return
@@ -73,8 +81,7 @@ vicake() {
   NAME=`echo ${1} | sed 's/.\+\/\(.\+\?\).php/\1/g'`
   DIR=`dirname ${1}`
 
-  alias ${NAME}vi="vi ${FULLDIR}/${1} ${FULLDIR}/tests/cases/${DIR}/${NAME}.test.php"
-  vi ${FULLDIR}/${1} ${FULLDIR}/tests/cases/${DIR}/${NAME}.test.php
+  vi ${FULLDIR}/${1} ${FULLDIR}/tests/cases/${DIR}/${NAME}*.test.php
 }
 
 # ssh-copy-id
