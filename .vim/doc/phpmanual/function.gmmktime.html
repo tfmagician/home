@@ -54,7 +54,10 @@
      <dd>
 
       <p class="para">
-       The hour
+       The number of the hour relevant to the start of the day determined by
+       <i><tt class="parameter">month</tt></i>, <i><tt class="parameter">day</tt></i> and <i><tt class="parameter">year</tt></i>.
+       Negative values reference the hour before midnight of the day in question.
+       Values greater than 23 reference the appropriate hour in the following day(s).
       </p>
      </dd>
 
@@ -66,7 +69,9 @@
      <dd>
 
       <p class="para">
-       The minute
+       The number of the minute relevant to the start of the <i><tt class="parameter">hour</tt></i>.
+       Negative values reference the minute in the previous hour.
+       Values greater than 59 reference the appropriate minute in the following hour(s).
       </p>
      </dd>
 
@@ -78,7 +83,9 @@
      <dd>
 
       <p class="para">
-       The second
+       The number of seconds relevant to the start of the <i><tt class="parameter">minute</tt></i>.
+       Negative values reference the second in the previous minute.
+       Values greater than 59 reference the appropriate second in the following minute(s).
       </p>
      </dd>
 
@@ -90,7 +97,10 @@
      <dd>
 
       <p class="para">
-       The month
+       The number of the month relevant to the end of the previous year.
+       Values 1 to 12 reference the normal calendar months of the year in question.
+       Values less than 1 (including negative values) reference the months in the previous year in reverse order, so 0 is December, -1 is November, etc.
+       Values greater than 12 reference the appropriate month in the following year(s).
       </p>
      </dd>
 
@@ -102,7 +112,10 @@
      <dd>
 
       <p class="para">
-       The day
+       The number of the day relevant to the end of the previous month.
+       Values 1 to 28, 29, 30 or 31 (depending upon the month) reference the normal days in the relevant month.
+       Values less than 1 (including negative values) reference the days in the previous month, so 0 is the last day of the previous month, -1 is the day before that, etc.
+       Values greater than the number of days in the relevant month reference the appropriate day in the following month(s).
       </p>
      </dd>
 

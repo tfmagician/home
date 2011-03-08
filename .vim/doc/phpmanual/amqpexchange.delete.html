@@ -20,9 +20,10 @@
  <div class="refsect1 description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><b>AMQPExchange::delete</b></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><b>AMQPExchange::delete</b></span>
     ([ <span class="methodparam"><span class="type">string</span> <tt class="parameter">$exchange_name</tt><span class="initializer"> = NULL</span></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$params</tt><span class="initializer"> = 0</span></span>
+  ]] )</div>
 
   <p class="para rdfs-comment">
     Delete and exchange from the broker.
@@ -54,6 +55,19 @@ currently not documented; only its argument list is available.
 
     </dt>
 
+    <dt>
+
+     <span class="term"><i><tt class="parameter">params</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Optionally <b><tt>AMQP_IFUNUSED</tt></b> can be specified to indicate the exchange
+       should not be deleted until no clients are connected to it.
+      </p>
+     </dd>
+
+    </dt>
+
    </dl>
 
   </p>
@@ -63,7 +77,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-
+   Returns <b><tt>TRUE</tt></b> on success or <b><tt>FALSE</tt></b> on failure.
   </p>
  </div>
 
@@ -75,7 +89,7 @@ currently not documented; only its argument list is available.
     <p><b>Example #1 <span class="function"><b>AMQPExchange::delete()</b></span> example</b></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;new&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">$cnn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPConnection</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;new&nbsp;exchange&nbsp;*/<br /></span><span style="color: #0000BB">$ex&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPExchange</span><span style="color: #007700">(</span><span style="color: #0000BB">$cnn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ex</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">declare</span><span style="color: #007700">(</span><span style="color: #DD0000">'new_topic_exchange'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">AMQP_DURABLE&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">AMQP_AUTODELETE</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Delete&nbsp;the&nbsp;previous&nbsp;exchange&nbsp;*/<br /></span><span style="color: #0000BB">$ex2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPExchange</span><span style="color: #007700">(</span><span style="color: #0000BB">$cnn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ex2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">delete</span><span style="color: #007700">(</span><span style="color: #DD0000">'new_topic_exchange'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;new&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">$cnn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPConnection</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$cnn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;new&nbsp;exchange&nbsp;*/<br /></span><span style="color: #0000BB">$ex&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPExchange</span><span style="color: #007700">(</span><span style="color: #0000BB">$cnn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ex</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">declare</span><span style="color: #007700">(</span><span style="color: #DD0000">'new_topic_exchange'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">AMQP_EX_TYPE_DIRECT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">AMQP_DURABLE&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">AMQP_AUTODELETE</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;Delete&nbsp;the&nbsp;previous&nbsp;exchange&nbsp;*/<br /></span><span style="color: #0000BB">$ex2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPExchange</span><span style="color: #007700">(</span><span style="color: #0000BB">$cnn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ex2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">delete</span><span style="color: #007700">(</span><span style="color: #DD0000">'new_topic_exchange'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

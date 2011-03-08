@@ -24,7 +24,7 @@
    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><b>DOMXPath::evaluate</b></span>
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$expression</tt></span>
    [, <span class="methodparam"><span class="type"><a href="class.domnode.html" class="type DOMNode">DOMNode</a></span> <tt class="parameter">$contextnode</tt></span>
-   [, <span class="methodparam"><span class="type">boolean</span> <tt class="parameter">$registerNodeNS</tt><span class="initializer"> = true</span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$registerNodeNS</tt><span class="initializer"> = true</span></span>
   ]] )</div>
 
   <p class="para rdfs-comment">
@@ -87,6 +87,11 @@
   <p class="para">
    Returns a typed result if possible or a <a href="class.domnodelist.html" class="classname">DOMNodeList</a> 
    containing all nodes matching the given XPath <i><tt class="parameter">expression</tt></i>. 
+  </p>
+  <p class="para">
+   If the <i><tt class="parameter">expression</tt></i> is malformed or the
+   <i><tt class="parameter">contextnode</tt></i> is invalid,
+    <span class="methodname"><b>DOMXPath::evaluate()</b></span> returns <b><tt>FALSE</tt></b>.
   </p>
  </div>
 

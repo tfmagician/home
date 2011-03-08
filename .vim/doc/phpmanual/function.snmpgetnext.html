@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Fetch a SNMP object</title>
+  <title>Fetch the SNMP object which follows the given object id</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">snmpgetnext</h1>
   <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">snmpgetnext</span> &mdash; <span class="dc-title">
-   Fetch a SNMP object
+   Fetch the <acronym>SNMP</acronym> object which follows the given object id
   </span></p>
 
  </div>
@@ -25,17 +25,107 @@
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$host</tt></span>
    , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$community</tt></span>
    , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$object_id</tt></span>
-   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$timeout</tt></span>
-   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$retries</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$timeout</tt><span class="initializer"> = 1000000</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$retries</tt><span class="initializer"> = 5</span></span>
   ]] )</div>
 
-
-   <div class="warning"><b class="warning">Warning</b><p class="simpara">This function is
-currently not documented; only its argument list is available.
-</p></div>
-
+  
+  <p class="para rdfs-comment">
+   The <span class="function"><b>snmpgetnext()</b></span> function is used to read the
+   value of the <acronym>SNMP</acronym> object that follows the specified 
+   <i><tt class="parameter">object_id</tt></i>.
+  </p>
  </div>
 
+ 
+ <div class="refsect1 parameters">
+  <h3 class="title">Parameters</h3>
+  <p class="para">
+   <dl>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">host</tt></i></span>
+     <dd>
+<p class="para">The hostname of the <acronym>SNMP</acronym> agent (server).</p></dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">community</tt></i></span>
+     <dd>
+<p class="para">The read community.</p></dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">object_id</tt></i></span>
+     <dd>
+<p class="para">The <acronym>SNMP</acronym> object id which precedes the wanted one.</p></dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">timeout</tt></i></span>
+     <dd>
+<p class="para">The number of microseconds until the first timeout.</p></dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">retries</tt></i></span>
+     <dd>
+<p class="para">The number of retries in case timeouts occur.</p></dd>
+
+    </dt>
+
+   </dl>
+
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 returnvalues">
+  <h3 class="title">Return Values</h3>
+  <p class="para">
+   Returns <acronym>SNMP</acronym> object value on success or <b><tt>FALSE</tt></b> on error.
+   In case of an error, an E_WARNING message is shown.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
+   <div class="example">
+    <p><b>Example #1 Using <span class="function"><b>snmpgetnext()</b></span></b></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$nameOfSecondInterface&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">snmpgetnetxt</span><span style="color: #007700">(</span><span style="color: #DD0000">'localhost'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'public'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'IF-MIB::ifName.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.snmpget.html" class="function" rel="rdfs-seeAlso">snmpget()</a> - Fetch an SNMP object</span></li>
+    <li class="member"><span class="function"><a href="function.snmpwalk.html" class="function" rel="rdfs-seeAlso">snmpwalk()</a> - Fetch all the SNMP objects from an agent</span></li>
+   </ul>
+  </p>
+ </div>
+
+ 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.snmpget.html">snmpget</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.snmprealwalk.html">snmprealwalk</a></div>

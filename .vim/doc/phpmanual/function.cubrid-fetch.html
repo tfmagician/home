@@ -2,18 +2,18 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Is used to get a single row</title>
+  <title>Fetches the next row from a result set</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-fetch-row.html">cubrid_fetch_row</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-field-flags.html">cubrid_field_flags</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.cubrid-fetch" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">cubrid_fetch</h1>
-  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_fetch</span> &mdash; <span class="dc-title">Is used to get a single row</span></p>
+  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_fetch</span> &mdash; <span class="dc-title">Fetches the next row from a result set</span></p>
 
  </div>
 
@@ -21,8 +21,8 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><b>cubrid_fetch</b></span>
-    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$req_identifier</tt></span>  
-   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$type</tt></span>  
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$result</tt></span>  
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$type</tt><span class="initializer"> = CUBRID_BOTH</span></span>  
   ] )</div>
 
   <p class="para rdfs-comment">
@@ -38,9 +38,9 @@
 
     <dt>
 
-  <span class="term"><i><tt class="parameter">req_identifier</tt></i></span>
+  <span class="term"><i><tt class="parameter">result</tt></i></span>
   <dd>
-<p class="para">Request identifier.</p></dd>
+<p class="para"><i><tt class="parameter">result</tt></i> comes from a call to <span class="function"><a href="function.cubrid-execute.html" class="function">cubrid_execute()</a></span></p></dd>
 
    </dt>
 
@@ -79,11 +79,26 @@
    <p><b>Example #1 <span class="function"><b>cubrid_fetch()</b></span> example</b></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute&nbsp;</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"select&nbsp;*&nbsp;from&nbsp;members"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CUBRID_INCLUDE_OID&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">CUBRID_ASYNC</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$req</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;while&nbsp;(&nbsp;list&nbsp;(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">cubrid_fetch&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">)&nbsp;){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cubrid_close_request&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"select&nbsp;*&nbsp;from&nbsp;teams"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$req</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;while&nbsp;(</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_fetch&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CUBRID_OBJECT</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">id</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">name</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33088</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;stadium&nbsp;WHERE&nbsp;nation_code='GRE'&nbsp;AND&nbsp;seats&nbsp;&gt;&nbsp;10000"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-40s&nbsp;%-10s&nbsp;%-6s&nbsp;%-20s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"name"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"area"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"seats"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"address"</span><span style="color: #007700">);<br />while&nbsp;(</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_fetch</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-40s&nbsp;%-10s&nbsp;%-6s&nbsp;%-20s\n"</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">"name"</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">"area"</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">"seats"</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">"address"</span><span style="color: #007700">]);<br />}<br /><br /></span><span style="color: #0000BB">cubrid_close_request</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+name                                     area       seats  address             
+Panathinaiko Stadium                     86300.00   50000  Athens, Greece      
+Olympic Stadium                          54700.00   13000  Athens, Greece      
+Olympic Indoor Hall                      34100.00   18800  Athens, Greece      
+Olympic Hall                             52400.00   21000  Athens, Greece      
+Olympic Aquatic Centre                   42500.00   11500  Athens, Greece      
+Markopoulo Olympic Equestrian Centre     64000.00   15000  Markopoulo, Athens, Greece
+Faliro Coastal Zone Olympic Complex      34650.00   12171  Faliro, Athens, Greece
+Athens Olympic Stadium                   120400.00  71030  Maroussi, Athens, Greece 
+Ano Liossia                              34000.00   12000  Ano Liosia, Athens, Greece
+</pre></div>
+   </div>
   </div>
  </div>
 
@@ -92,7 +107,7 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-   <li class="member"><span class="function"><a href="function.cubrid-execute.html" class="function" rel="rdfs-seeAlso">cubrid_execute()</a> - Is used to execute the given SQL sentence.</span></li>
+   <li class="member"><span class="function"><a href="function.cubrid-execute.html" class="function" rel="rdfs-seeAlso">cubrid_execute()</a> - Executes a prepared SQL statement</span></li>
    </ul>
   </p>
   </div>
@@ -101,6 +116,6 @@
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-fetch-row.html">cubrid_fetch_row</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-field-flags.html">cubrid_field_flags</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

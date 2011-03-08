@@ -23,8 +23,8 @@
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$hostname</tt></span>
    , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$community</tt></span>
    , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$object_id</tt></span>
-   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$timeout</tt></span>
-   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$retries</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$timeout</tt><span class="initializer"> = 1000000</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$retries</tt><span class="initializer"> = 5</span></span>
   ]] )</div>
 
 
@@ -95,6 +95,7 @@
      <dd>
 
       <p class="para">
+       The number of retries in case timeouts occur.       
       </p>
      </dd>
 
@@ -135,7 +136,7 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.snmpset.html" class="function" rel="rdfs-seeAlso">snmpset()</a> - Set an SNMP object</span></li>
+    <li class="member"><span class="function"><a href="function.snmpset.html" class="function" rel="rdfs-seeAlso">snmpset()</a> - Set the value of an SNMP object</span></li>
    </ul>
   </p>
  </div>

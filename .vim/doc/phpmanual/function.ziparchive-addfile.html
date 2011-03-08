@@ -21,8 +21,10 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><b>ZipArchive::addFile</b></span>
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$filename</tt></span>
-   [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$localname</tt></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$localname</tt><span class="initializer"> = <b><tt>NULL</tt></b></span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$start</tt><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$length</tt><span class="initializer"> = 0</span></span>
+  ]]] )</div>
 
   <p class="para rdfs-comment">
    Adds a file to a ZIP archive from a given path.
@@ -52,7 +54,31 @@
      <dd>
 
       <p class="para">
-       local name inside ZIP archive.
+       If supplied, this is the local name inside the ZIP archive that will override the <i><tt class="parameter">filename</tt></i>.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">start</tt></i></span>
+     <dd>
+
+      <p class="para">
+       This parameter is not used but is required to extend <a href="class.ziparchive.html" class="classname">ZipArchive</a>.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">length</tt></i></span>
+     <dd>
+
+      <p class="para">
+       This parameter is not used but is required to extend <a href="class.ziparchive.html" class="classname">ZipArchive</a>.
       </p>
      </dd>
 

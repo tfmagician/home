@@ -8,7 +8,7 @@
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-get.html">cubrid_get</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-is-instance.html">cubrid_is_instance</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.cubrid-insert-id" class="refentry">
  <div class="refnamediv">
@@ -26,7 +26,12 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-    This function returns an array with the IDs generated for the <b><tt>AUTO_INCREMENT</tt></b> columns that were updated by the previous INSERT query. It returns an array with all the <b><tt>AUTO_INCREMENT</tt></b> columns and their values. It returns 0 if the previous query does not generate new rows, or it returns FALSE on failure.
+    This function returns an array with the IDs generated for the
+    <b><tt>AUTO_INCREMENT</tt></b> columns that were updated by the
+    previous INSERT query. It returns an array with all the
+    <b><tt>AUTO_INCREMENT</tt></b> columns and their values. It returns 0
+    if the previous query does not generate new rows, or it returns FALSE on
+    failure.
   </p>
  </div>
 
@@ -36,19 +41,25 @@
  <p class="para">
   <dl>
 
-    <dt>
+   <dt>
 
-  <span class="term"><i><tt class="parameter">class_name</tt></i></span>
-  <dd>
-<p class="para">The name of the class (table) that was used in the last INSERT statement for which the auto increment values are retrieved.</p></dd>
+    <span class="term"><i><tt class="parameter">class_name</tt></i></span>
+    <dd>
+<p class="para">
+      The name of the class (table) that was used in the last INSERT statement
+      for which the auto increment values are retrieved.
+    </p></dd>
 
    </dt>
 
-     <dt>
+   <dt>
 
-  <span class="term"><i><tt class="parameter">conn_identifier</tt></i></span>
-  <dd>
-<p class="para">The connection identifier previously obtained by a call to <span class="function"><a href="function.cubrid-connect.html" class="function">cubrid_connect()</a></span>.</p></dd>
+    <span class="term"><i><tt class="parameter">conn_identifier</tt></i></span>
+    <dd>
+<p class="para">
+      The connection identifier previously obtained by a call to
+      <span class="function"><a href="function.cubrid-connect.html" class="function">cubrid_connect()</a></span>.
+    </p></dd>
 
    </dt>
 
@@ -78,7 +89,7 @@
    <p><b>Example #1 <span class="function"><b>cubrid_insert_id()</b></span> example</b></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;&nbsp;$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">30000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb2"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dba"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"insert&nbsp;into&nbsp;employees&nbsp;(name,&nbsp;address,&nbsp;salary)&nbsp;values&nbsp;('Michael',&nbsp;'Boston,&nbsp;MA',&nbsp;3750)"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$array_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_insert_id</span><span style="color: #007700">(</span><span style="color: #DD0000">"employees"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Last&nbsp;insert&nbsp;id&nbsp;was&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$array_id</span><span style="color: #007700">[</span><span style="color: #DD0000">"id"</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cubrid_close_request</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /><br />@</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;cubrid_test"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;cubrid_test&nbsp;(d&nbsp;int&nbsp;AUTO_INCREMENT(1,&nbsp;2),&nbsp;t&nbsp;varchar)"</span><span style="color: #007700">);<br /><br />for&nbsp;(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;cubrid_test(t)&nbsp;VALUES('cubrid_test')"</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">$id_list&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_insert_id</span><span style="color: #007700">(</span><span style="color: #DD0000">"cubrid_test"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$id_list</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -86,8 +97,10 @@
     <div class="example-contents"><p>The above example will output:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-Result:
-Last insert id was 10
+array(1) {
+  [&quot;d&quot;]=&gt;
+  int(19)
+}
 </pre></div>
     </div>
   </div>
@@ -97,6 +110,6 @@ Last insert id was 10
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-get.html">cubrid_get</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-is-instance.html">cubrid_is_instance</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

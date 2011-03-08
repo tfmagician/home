@@ -51,12 +51,9 @@
        strings.
       </p>
       <p class="para">
-       The <i>e</i> modifier makes <span class="function"><b>preg_replace()</b></span>
-       treat the <i><tt class="parameter">replacement</tt></i> parameter as PHP code after
-       the appropriate references substitution is done. Tip: make sure that
-       <i><tt class="parameter">replacement</tt></i> constitutes a valid PHP code string,
-       otherwise PHP will complain about a parse error at the line containing
-       <span class="function"><b>preg_replace()</b></span>.
+       Several <a href="reference.pcre.pattern.modifiers.html" class="link">PCRE modifiers</a>
+       are also available, including &#039;<i>e</i>&#039; (PREG_REPLACE_EVAL), which
+       is specific to this function.
       </p>
      </dd>
 
@@ -372,6 +369,7 @@ xp***to
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><a href="pcre.pattern.html" class="link">PCRE Patterns</a></li>
     <li class="member"><span class="function"><a href="function.preg-filter.html" class="function" rel="rdfs-seeAlso">preg_filter()</a> - Perform a regular expression search and replace</span></li>
     <li class="member"><span class="function"><a href="function.preg-match.html" class="function" rel="rdfs-seeAlso">preg_match()</a> - Perform a regular expression match</span></li>
     <li class="member"><span class="function"><a href="function.preg-replace-callback.html" class="function" rel="rdfs-seeAlso">preg_replace_callback()</a> - Perform a regular expression search and replace using a callback</span></li>

@@ -105,7 +105,7 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongodb.command.html" class="methodname">command</a></span>
-    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$data</tt></span>
+    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$command</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
     <span class="methodname"><a href="mongodb.construct.html" class="methodname">__construct</a></span>
@@ -158,6 +158,10 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongodb.getslaveokay.html" class="methodname">getSlaveOkay</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongodb.lasterror.html" class="methodname">lastError</a></span>
     ( <span class="methodparam">void</span>
    )</div>
@@ -186,6 +190,10 @@
    <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="mongodb.setprofilinglevel.html" class="methodname">setProfilingLevel</a></span>
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$level</tt></span>
    )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongodb.setslaveokay.html" class="methodname">setSlaveOkay</a></span>
+    ([ <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$ok</tt></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="mongodb.--tostring.html" class="methodname">__toString</a></span>
     ( <span class="methodparam">void</span>
@@ -409,6 +417,12 @@
 
 
 
+ 
+
+
+
+
+
   
 
 
@@ -449,7 +463,13 @@
 
 
 
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb.authenticate.html">MongoDB::authenticate</a> — Log in to this database</li><li><a href="mongodb.command.html">MongoDB::command</a> — Execute a database command</li><li><a href="mongodb.construct.html">MongoDB::__construct</a> — Creates a new database</li><li><a href="mongodb.createcollection.html">MongoDB::createCollection</a> — Creates a collection</li><li><a href="mongodb.createdbref.html">MongoDB::createDBRef</a> — Creates a database reference</li><li><a href="mongodb.drop.html">MongoDB::drop</a> — Drops this database</li><li><a href="mongodb.dropcollection.html">MongoDB::dropCollection</a> — Drops a collection [deprecated]</li><li><a href="mongodb.execute.html">MongoDB::execute</a> — Runs JavaScript code on the database server.</li><li><a href="mongodb.forceerror.html">MongoDB::forceError</a> — Creates a database error</li><li><a href="mongodb.get.html">MongoDB::__get</a> — Gets a collection</li><li><a href="mongodb.getdbref.html">MongoDB::getDBRef</a> — Fetches the document pointed to by a database reference</li><li><a href="mongodb.getgridfs.html">MongoDB::getGridFS</a> — Fetches toolkit for dealing with files stored in this database</li><li><a href="mongodb.getprofilinglevel.html">MongoDB::getProfilingLevel</a> — Gets this database's profiling level</li><li><a href="mongodb.lasterror.html">MongoDB::lastError</a> — Check if there was an error on the most recent db operation performed</li><li><a href="mongodb.listcollections.html">MongoDB::listCollections</a> — Get a list of collections in this database</li><li><a href="mongodb.preverror.html">MongoDB::prevError</a> — Checks for the last error thrown during a database operation</li><li><a href="mongodb.repair.html">MongoDB::repair</a> — Repairs and compacts this database</li><li><a href="mongodb.reseterror.html">MongoDB::resetError</a> — Clears any flagged errors on the database</li><li><a href="mongodb.selectcollection.html">MongoDB::selectCollection</a> — Gets a collection</li><li><a href="mongodb.setprofilinglevel.html">MongoDB::setProfilingLevel</a> — Sets this database's profiling level</li><li><a href="mongodb.--tostring.html">MongoDB::__toString</a> — The name of this database</li></ul>
+
+
+ 
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb.authenticate.html">MongoDB::authenticate</a> — Log in to this database</li><li><a href="mongodb.command.html">MongoDB::command</a> — Execute a database command</li><li><a href="mongodb.construct.html">MongoDB::__construct</a> — Creates a new database</li><li><a href="mongodb.createcollection.html">MongoDB::createCollection</a> — Creates a collection</li><li><a href="mongodb.createdbref.html">MongoDB::createDBRef</a> — Creates a database reference</li><li><a href="mongodb.drop.html">MongoDB::drop</a> — Drops this database</li><li><a href="mongodb.dropcollection.html">MongoDB::dropCollection</a> — Drops a collection [deprecated]</li><li><a href="mongodb.execute.html">MongoDB::execute</a> — Runs JavaScript code on the database server.</li><li><a href="mongodb.forceerror.html">MongoDB::forceError</a> — Creates a database error</li><li><a href="mongodb.get.html">MongoDB::__get</a> — Gets a collection</li><li><a href="mongodb.getdbref.html">MongoDB::getDBRef</a> — Fetches the document pointed to by a database reference</li><li><a href="mongodb.getgridfs.html">MongoDB::getGridFS</a> — Fetches toolkit for dealing with files stored in this database</li><li><a href="mongodb.getprofilinglevel.html">MongoDB::getProfilingLevel</a> — Gets this database's profiling level</li><li><a href="mongodb.getslaveokay.html">MongoDB::getSlaveOkay</a> — Get slaveOkay setting for this database</li><li><a href="mongodb.lasterror.html">MongoDB::lastError</a> — Check if there was an error on the most recent db operation performed</li><li><a href="mongodb.listcollections.html">MongoDB::listCollections</a> — Get a list of collections in this database</li><li><a href="mongodb.preverror.html">MongoDB::prevError</a> — Checks for the last error thrown during a database operation</li><li><a href="mongodb.repair.html">MongoDB::repair</a> — Repairs and compacts this database</li><li><a href="mongodb.reseterror.html">MongoDB::resetError</a> — Clears any flagged errors on the database</li><li><a href="mongodb.selectcollection.html">MongoDB::selectCollection</a> — Gets a collection</li><li><a href="mongodb.setprofilinglevel.html">MongoDB::setProfilingLevel</a> — Sets this database's profiling level</li><li><a href="mongodb.setslaveokay.html">MongoDB::setSlaveOkay</a> — Change slaveOkay setting for this database</li><li><a href="mongodb.--tostring.html">MongoDB::__toString</a> — The name of this database</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mongo.tostring.html">Mongo::__toString</a></div>

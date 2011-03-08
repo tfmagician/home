@@ -8,7 +8,7 @@
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-field-type.html">cubrid_field_type</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-get-charset.html">cubrid_get_charset</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.cubrid-free-result" class="refentry">
  <div class="refnamediv">
@@ -25,7 +25,10 @@
    )</div>
 
   <p class="para rdfs-comment">
-    This function frees the memory occupied by the result data. It returns TRUE on success or FALSE on failure. 
+    This function frees the memory occupied by the result data. It returns
+    TRUE on success or FALSE on failure. Note that it can only frees the
+    client fetch buffer now, and if you want free all memory, use function
+    <span class="function"><a href="function.cubrid-close-request.html" class="function">cubrid_close_request()</a></span>.
   </p>
  </div>
 
@@ -66,7 +69,7 @@
    <p><b>Example #1 <span class="function"><b>cubrid_free_result()</b></span> example</b></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;&nbsp;$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">30000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb2"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dba"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SELECT&nbsp;id,&nbsp;name,&nbsp;address,&nbsp;salary&nbsp;FROM&nbsp;employees'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_fetch_assoc</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Now&nbsp;we&nbsp;free&nbsp;up&nbsp;the&nbsp;result&nbsp;and&nbsp;continue&nbsp;on&nbsp;with&nbsp;our&nbsp;script&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cubrid_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'id'</span><span style="color: #007700">].</span><span style="color: #DD0000">"&lt;br&gt;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'address'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php&nbsp;<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;history&nbsp;WHERE&nbsp;host_year=2004&nbsp;ORDER&nbsp;BY&nbsp;event_code"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_fetch_assoc</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$row</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_close_request</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -74,9 +77,18 @@
     <div class="example-contents"><p>The above example will output:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-Result:
-1
-1st Avenue, New York
+array(5) {
+  [&quot;event_code&quot;]=&gt;
+  string(5) &quot;20005&quot;
+  [&quot;athlete&quot;]=&gt;
+  string(12) &quot;Hayes Joanna&quot;
+  [&quot;host_year&quot;]=&gt;
+  string(4) &quot;2004&quot;
+  [&quot;score&quot;]=&gt;
+  string(5) &quot;12.37&quot;
+  [&quot;unit&quot;]=&gt;
+  string(4) &quot;time&quot;
+}
 </pre></div>
     </div>
   </div>
@@ -86,6 +98,6 @@ Result:
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-field-type.html">cubrid_field_type</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-get-charset.html">cubrid_get_charset</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

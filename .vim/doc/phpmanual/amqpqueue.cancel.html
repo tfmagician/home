@@ -20,9 +20,9 @@
  <div class="refsect1 description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><b>AMQPQueue::cancel</b></span>
-    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$consumer_tag</tt></span>
-   )</div>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><b>AMQPQueue::cancel</b></span>
+    ([ <span class="methodparam"><span class="type">string</span> <tt class="parameter">$consumer_tag</tt><span class="initializer"> = &quot;&quot;</span></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
     Cancel a queue that is already bound to an exchange and routing key.
@@ -61,7 +61,7 @@ currently not documented; only its argument list is available.
  <div class="refsect1 returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-
+   Returns <b><tt>TRUE</tt></b> on success or <b><tt>FALSE</tt></b> on failure.
   </p>
  </div>
 

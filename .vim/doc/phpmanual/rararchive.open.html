@@ -90,11 +90,11 @@
        for such volume or <i>NULL</i> if such volume does
        not exist or is not known. The programmer should ensure the
        passed function doesn&#039;t cause loops as this function is called
-       repetedly if the path returned in a previous call did not
+       repeatedly if the path returned in a previous call did not
        correspond to the needed volume. Specifying this parameter omits
        the notice that would otherwise be emitted whenever a volume is
-       not found; an implementation that only returns <b><tt>FALSE</tt></b> can
-       therefore be used to merely omit such notices.
+       not found; an implementation that only returns <i>NULL</i>
+	   can therefore be used to merely omit such notices.
       </p>
      </dd>
 

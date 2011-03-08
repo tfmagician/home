@@ -233,7 +233,7 @@
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$artifact</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.deskewimage.html" class="methodname">deskewImage</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="imagick.deskewimage.html" class="methodname">deskewImage</a></span>
     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$threshold</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -336,10 +336,11 @@
    , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$outer_bevel</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">boolean</span> <span class="methodname"><a href="imagick.functionimage.html" class="methodname">functionImage</a></span>
-    ( <span class="methodparam"><span class="type">integer</span> <tt class="parameter">$function</tt></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="imagick.functionimage.html" class="methodname">functionImage</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$function</tt></span>
    , <span class="methodparam"><span class="type">array</span> <tt class="parameter">$arguments</tt></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$channel</tt><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">Imagick</span> <span class="methodname"><a href="function.imagick-fximage.html" class="methodname">fxImage</a></span>
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$expression</tt></span>
@@ -385,7 +386,7 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="function.imagick-getgravity.html" class="methodname">getGravity</a></span>
+   <span class="type">int</span> <span class="methodname"><a href="function.imagick-getgravity.html" class="methodname">getGravity</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -401,7 +402,7 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="function.imagick-getimageartifact.html" class="methodname">getImageArtifact</a></span>
+   <span class="type">string</span> <span class="methodname"><a href="function.imagick-getimageartifact.html" class="methodname">getImageArtifact</a></span>
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$artifact</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -414,8 +415,7 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><a href="function.imagick-getimageblueprimary.html" class="methodname">getImageBluePrimary</a></span>
-    ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$x</tt></span>
-   , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$y</tt></span>
+    ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">ImagickPixel</span> <span class="methodname"><a href="function.imagick-getimagebordercolor.html" class="methodname">getImageBorderColor</a></span>
@@ -432,11 +432,11 @@
    , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$metric</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">double</span> <span class="methodname"><a href="function.imagick-getimagechanneldistortions.html" class="methodname">getImageChannelDistortions</a></span>
+   <span class="type">float</span> <span class="methodname"><a href="function.imagick-getimagechanneldistortions.html" class="methodname">getImageChannelDistortions</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span> <tt class="parameter">$reference</tt></span>
    , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$metric</tt></span>
-   , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$channel</tt></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$channel</tt><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><a href="function.imagick-getimagechannelextrema.html" class="methodname">getImageChannelExtrema</a></span>
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$channel</tt></span>
@@ -450,7 +450,7 @@
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$channel</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="function.imagick-getimagechannelrange.html" class="methodname">getImageChannelRange</a></span>
+   <span class="type">array</span> <span class="methodname"><a href="function.imagick-getimagechannelrange.html" class="methodname">getImageChannelRange</a></span>
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$channel</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -523,7 +523,7 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="function.imagick-getimagegravity.html" class="methodname">getImageGravity</a></span>
+   <span class="type">int</span> <span class="methodname"><a href="function.imagick-getimagegravity.html" class="methodname">getImageGravity</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -563,7 +563,7 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">int</span> <span class="methodname"><a href="function.imagick-getimagematte.html" class="methodname">getImageMatte</a></span>
+   <span class="type">bool</span> <span class="methodname"><a href="function.imagick-getimagematte.html" class="methodname">getImageMatte</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -700,7 +700,7 @@
    , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$rows</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">string</span> <span class="methodname"><a href="function.imagick-getpointsize.html" class="methodname">getPointSize</a></span>
+   <span class="type">float</span> <span class="methodname"><a href="function.imagick-getpointsize.html" class="methodname">getPointSize</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -740,9 +740,9 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">boolean</span> <span class="methodname"><a href="imagick.haldclutimage.html" class="methodname">haldClutImage</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="imagick.haldclutimage.html" class="methodname">haldClutImage</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span> <tt class="parameter">$clut</tt></span>
-   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$channel</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$channel</tt><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="function.imagick-hasnextimage.html" class="methodname">hasNextImage</a></span>
@@ -1028,7 +1028,7 @@
     ( <span class="methodparam"><span class="type">float</span> <tt class="parameter">$radius</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.remapimage.html" class="methodname">remapImage</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="imagick.remapimage.html" class="methodname">remapImage</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span> <tt class="parameter">$replacement</tt></span>
    , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$DITHER</tt></span>
    )</div>
@@ -1093,11 +1093,11 @@
    [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$bestfit</tt><span class="initializer"> = false</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.segmentimage.html" class="methodname">segmentImage</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="imagick.segmentimage.html" class="methodname">segmentImage</a></span>
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$COLORSPACE</tt></span>
    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$cluster_threshold</tt></span>
    , <span class="methodparam"><span class="type">float</span> <tt class="parameter">$smooth_threshold</tt></span>
-   [, <span class="methodparam"><span class="type">boolean</span> <tt class="parameter">$verbose</tt></span>
+   [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$verbose</tt><span class="initializer"> = false</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="function.imagick-separateimagechannel.html" class="methodname">separateImageChannel</a></span>
@@ -1434,7 +1434,7 @@
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$threshold</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">boolean</span> <span class="methodname"><a href="imagick.sparsecolorimage.html" class="methodname">sparseColorImage</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="imagick.sparsecolorimage.html" class="methodname">sparseColorImage</a></span>
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$SPARSE_METHOD</tt></span>
    , <span class="methodparam"><span class="type">array</span> <tt class="parameter">$arguments</tt></span>
    [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$channel</tt><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
@@ -1481,7 +1481,8 @@
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$columns</tt></span>
    , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$rows</tt></span>
    [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$bestfit</tt><span class="initializer"> = false</span></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$fill</tt><span class="initializer"> = false</span></span>
+  ]] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="function.imagick-tintimage.html" class="methodname">tintImage</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$tint</tt></span>

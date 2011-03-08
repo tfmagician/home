@@ -111,17 +111,17 @@ A PHP Judy object (or Judy Array) can be one of the following type :
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="judy.bycount.html" class="methodname">byCount</a></span>
-    ( <span class="methodparam"><span class="type">integer</span> <tt class="parameter">$nth_index</tt></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="judy.bycount.html" class="methodname">byCount</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$nth_index</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">Judy</span> <span class="methodname"><a href="judy.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type">integer</span> <tt class="parameter">$judy_type</tt></span>
+    ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$judy_type</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="judy.count.html" class="methodname">count</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <tt class="parameter">$index_start</tt></span>
-   [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$index_end</tt></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="judy.count.html" class="methodname">count</a></span>
+    ([ <span class="methodparam"><span class="type">int</span> <tt class="parameter">$index_start</tt><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$index_end</tt><span class="initializer"> = -1</span></span>
   ]] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="judy.destruct.html" class="methodname">__destruct</a></span>
@@ -129,30 +129,30 @@ A PHP Judy object (or Judy Array) can be one of the following type :
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="judy.first.html" class="methodname">first</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$index</tt></span>
-   )</div>
+    ([ <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$index</tt></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="judy.firstempty.html" class="methodname">firstEmpty</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$index</tt></span>
-   )</div>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="judy.firstempty.html" class="methodname">firstEmpty</a></span>
+    ([ <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$index</tt><span class="initializer"> = 0</span></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="judy.free.html" class="methodname">free</a></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="judy.free.html" class="methodname">free</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">integer</span> <span class="methodname"><a href="judy.gettype.html" class="methodname">getType</a></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="judy.gettype.html" class="methodname">getType</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="judy.last.html" class="methodname">last</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$index</tt></span>
-   )</div>
+    ([ <span class="methodparam"><span class="type">string</span> <tt class="parameter">$index</tt></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="judy.lastempty.html" class="methodname">lastEmpty</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$index</tt></span>
-   )</div>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="judy.lastempty.html" class="methodname">lastEmpty</a></span>
+    ([ <span class="methodparam"><span class="type">int</span> <tt class="parameter">$index</tt><span class="initializer"> = -1</span></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">integer</span> <span class="methodname"><a href="judy.memoryusage.html" class="methodname">memoryUsage</a></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="judy.memoryusage.html" class="methodname">memoryUsage</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -160,8 +160,8 @@ A PHP Judy object (or Judy Array) can be one of the following type :
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$index</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="judy.nextempty.html" class="methodname">nextEmpty</a></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$index</tt></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="judy.nextempty.html" class="methodname">nextEmpty</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$index</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="judy.offsetexists.html" class="methodname">offsetExists</a></span>
@@ -172,12 +172,12 @@ A PHP Judy object (or Judy Array) can be one of the following type :
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$offset</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="judy.offsetset.html" class="methodname">offsetSet</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="judy.offsetset.html" class="methodname">offsetSet</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$offset</tt></span>
    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$value</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="judy.offsetunset.html" class="methodname">offsetUnset</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="judy.offsetunset.html" class="methodname">offsetUnset</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$offset</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -185,7 +185,7 @@ A PHP Judy object (or Judy Array) can be one of the following type :
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$index</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="judy.prevempty.html" class="methodname">prevEmpty</a></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="judy.prevempty.html" class="methodname">prevEmpty</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$index</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">

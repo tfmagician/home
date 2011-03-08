@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Get the key size of the specified cipher</title>
+  <title>Gets the key size of the specified cipher</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mcrypt-get-key-size" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mcrypt_get_key_size</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mcrypt_get_key_size</span> &mdash; <span class="dc-title">Get the key size of the specified cipher</span></p>
+  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mcrypt_get_key_size</span> &mdash; <span class="dc-title">Gets the key size of the specified cipher</span></p>
 
  </div>
  
@@ -40,28 +40,48 @@
    combination with an encryption mode).
   </p>
   <p class="para">
-   This example shows how to use this function when linked against libmcrypt
-   2.4.x and 2.5.x. It is more useful to use the
-   <span class="function"><a href="function.mcrypt-enc-get-key-size.html" class="function">mcrypt_enc_get_key_size()</a></span> function as this uses the
-   resource returned by <span class="function"><a href="function.mcrypt-module-open.html" class="function">mcrypt_module_open()</a></span>.
+   It is more useful to use the <span class="function"><a href="function.mcrypt-enc-get-key-size.html" class="function">mcrypt_enc_get_key_size()</a></span>
+   function as this uses the resource returned by <span class="function"><a href="function.mcrypt-module-open.html" class="function">mcrypt_module_open()</a></span>.
+  </p>
+ </div>
 
+ <div class="refsect1 examples">
+  <h3 class="title">Examples</h3>
+  <p class="para">
    <div class="example">
-    <p><b>Example #1 <span class="function"><b>mcrypt_get_key_size()</b></span> example</b></p>
+    <p><b>Example #1 <span class="function"><b>mcrypt_get_key_size()</b></span> Example</b></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">mcrypt_get_key_size</span><span style="color: #007700">(</span><span style="color: #DD0000">'tripledes'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ecb'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;<br /></span><br />Prints:<br />24</span>
+<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">mcrypt_get_key_size</span><span style="color: #007700">(</span><span style="color: #DD0000">'tripledes'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'ecb'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
 </code></div>
     </div>
 
-   </div>
+    <div class="example-contents"><p>
+     The example above shows how to use this function when
+     linked against libmcrypt 2.4.x or 2.5.x.
+    </p></div>
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+24
+</pre></div>
+    </div>
+   </div>   
   </p>
-  <p class="para">
-   See also: <span class="function"><a href="function.mcrypt-get-block-size.html" class="function">mcrypt_get_block_size()</a></span>,
-   <span class="function"><a href="function.mcrypt-enc-get-key-size.html" class="function">mcrypt_enc_get_key_size()</a></span> and
-   <span class="function"><a href="function.mcrypt-encrypt.html" class="function">mcrypt_encrypt()</a></span>.
-  </p>
-
  </div>
+
+ <div class="refsect1 seealso">
+  <h3 class="title">See Also</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mcrypt-get-block-size.html" class="function" rel="rdfs-seeAlso">mcrypt_get_block_size()</a> - Gets the block size of the specified cipher</span></li>
+    <li class="member"><span class="function"><a href="function.mcrypt-enc-get-key-size.html" class="function" rel="rdfs-seeAlso">mcrypt_enc_get_key_size()</a> - Returns the maximum supported keysize of the opened mode</span></li>
+    <li class="member"><span class="function"><a href="function.mcrypt-encrypt.html" class="function" rel="rdfs-seeAlso">mcrypt_encrypt()</a> - Encrypts plaintext with given parameters</span></li>
+   </ul>
+  </p>
+ </div>
+
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.mcrypt-get-iv-size.html">mcrypt_get_iv_size</a></div>

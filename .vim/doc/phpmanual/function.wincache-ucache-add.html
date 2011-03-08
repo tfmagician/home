@@ -22,10 +22,17 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><b>wincache_ucache_add</b></span>
-    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$key</tt></span>
+    ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$key</tt></span>
    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$value</tt></span>
    [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$ttl</tt><span class="initializer"> = 0</span></span>
   ] )</div>
+
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><b>wincache_ucache_add</b></span>
+    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$values</tt></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$unused</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$ttl</tt><span class="initializer"> = 0</span></span>
+  ]] )</div>
 
   <p class="para rdfs-comment">
    Adds a variable in user cache, only if this variable doesn&#039;t already exist in the cache. 
@@ -66,6 +73,18 @@
        as <i><tt class="parameter">value</tt></i> while using array as <i><tt class="parameter">key</tt></i>. If <i><tt class="parameter">value</tt></i> is an
        object, or an array containing objects, then the objects will be serialized. See
        <a href="language.oop5.magic.html#language.oop5.magic.sleep" class="link">__sleep()</a> for details on serializing objects.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">values</tt></i></span>
+     <dd>
+
+      <p class="para">
+       Associative array of keys and values.
       </p>
      </dd>
 

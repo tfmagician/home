@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="mongo.updates.html">Updates</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="mongo.configuration.html">php.ini Options</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="mongo.testing.html">Running the Driver's Tests</a></div>
  <div class="up"><a href="mongo.manual.html">Manual</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -30,7 +30,7 @@
 
   <p class="para">
    Someone could subvert this by getting 
-   <em class="emphasis">http://www.example.com?password[$ne]=foo</em>, which PHP 
+   <em class="emphasis">http://www.example.com?username[$ne]=foo</em>, which PHP 
    will magically turn into an associative array, turning your query into
    <i>$collection-&gt;find(array(&quot;username&quot; =&gt; array(&#039;$ne&#039; =&gt; &quot;foo&quot;)))</i>,
    which will return all users not named &quot;foo&quot; (all of your users, probably).
@@ -48,7 +48,7 @@
  </div>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="mongo.updates.html">Updates</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="mongo.configuration.html">php.ini Options</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="mongo.testing.html">Running the Driver's Tests</a></div>
  <div class="up"><a href="mongo.manual.html">Manual</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

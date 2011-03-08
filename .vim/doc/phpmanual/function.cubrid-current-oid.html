@@ -2,18 +2,18 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Is used to get the oid of the current cursor location</title>
+  <title>Get OID of the current cursor location</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-connect.html">cubrid_connect</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-data-seek.html">cubrid_data_seek</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.cubrid-current-oid" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">cubrid_current_oid</h1>
-  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_current_oid</span> &mdash; <span class="dc-title">Is used to get the oid of the current cursor location</span></p>
+  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_current_oid</span> &mdash; <span class="dc-title">Get OID of the current cursor location</span></p>
 
  </div>
 
@@ -25,7 +25,11 @@
    )</div>
 
   <p class="para rdfs-comment">
-    The <span class="function"><b>cubrid_current_oid()</b></span> function is used to get the oid of the current cursor location from the query result.  To use <span class="function"><b>cubrid_current_oid()</b></span>, the query executed must be a updatable query, and the CUBRID_INCLUDE_OID option must be included during the query execution.
+    The <span class="function"><b>cubrid_current_oid()</b></span> function is used to get the
+    oid of the current cursor location from the query result.  To use
+    <span class="function"><b>cubrid_current_oid()</b></span>, the query executed must be a
+    updatable query, and the CUBRID_INCLUDE_OID option must be included during
+    the query execution.
   </p>
  </div>
 
@@ -35,10 +39,10 @@
  <p class="para">
   <dl>
 
-    <dt>
+   <dt>
 
-  <span class="term"><i><tt class="parameter">req_identifier</tt></i></span>
-  <dd>
+    <span class="term"><i><tt class="parameter">req_identifier</tt></i></span>
+    <dd>
 <p class="para">Request identifier.</p></dd>
 
    </dt>
@@ -66,9 +70,20 @@
    <p><b>Example #1 <span class="function"><b>cubrid_current_oid()</b></span> example</b></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$req&nbsp;</span><span style="color: #007700">=</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,</span><span style="color: #DD0000">"select&nbsp;*&nbsp;from&nbsp;person&nbsp;where&nbsp;id&nbsp;=1"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">CUBRID_INCLUDE_OID</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$req</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cubrid_fetch&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$oid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_current_oid&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cubrid_close_request&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"OID&nbsp;is&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #DD0000">"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;code"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CUBRID_INCLUDE_OID</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$oid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_current_oid</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
+   </div>
+
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [s_name] =&gt; X
+    [f_name] =&gt; Mixed
+)
+</pre></div>
    </div>
 
   </div>
@@ -79,7 +94,7 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-   <li class="member"><span class="function"><a href="function.cubrid-execute.html" class="function" rel="rdfs-seeAlso">cubrid_execute()</a> - Is used to execute the given SQL sentence.</span></li>
+   <li class="member"><span class="function"><a href="function.cubrid-execute.html" class="function" rel="rdfs-seeAlso">cubrid_execute()</a> - Executes a prepared SQL statement</span></li>
    </ul>
   </p>
  </div>
@@ -88,6 +103,6 @@
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-connect.html">cubrid_connect</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-data-seek.html">cubrid_data_seek</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

@@ -61,22 +61,6 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
    to authenticate with.  If <i>db</i> is not specified, &quot;admin&quot; 
    will be used.
   </p>
-
-  <p class="para">
-   If you elect not to connect immediately (you pass the option 
-   <i>array(&quot;connect&quot; =&gt; false)</i>), you will need to call 
-   <span class="function"><a href="mongo.connect.html" class="function">Mongo::connect()</a></span> before doing any database operations.
-  </p>
-
-  <div class="informalexample">
-   <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$mongo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Mongo</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"connect"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;throws&nbsp;a&nbsp;MongoException,&nbsp;as&nbsp;$mongo&nbsp;has&nbsp;not&nbsp;been&nbsp;fully&nbsp;initialized&nbsp;yet<br /></span><span style="color: #0000BB">$mongo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectDB</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">command</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"distinct"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"key"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"age"</span><span style="color: #007700">));<br /><br /></span><span style="color: #FF8000">//&nbsp;okay<br /></span><span style="color: #0000BB">$mongo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$mongo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectDB</span><span style="color: #007700">(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">command</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"distinct"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"key"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"age"</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-   </div>
-
-  </div>
  </div>
 
 
@@ -153,6 +137,24 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
           database command on the seeds, so the driver may end up connecting to
           a server that was not even listed.  See the replica set example below
           for details.
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <i>&quot;username&quot;</i>
+         </p>
+         <p class="para">
+          The username can be specified here, instead of including it in the
+          host list.  This is especially useful if a username has a &quot;:&quot; in it.
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <i>&quot;password&quot;</i>
+         </p>
+         <p class="para">
+          The password can be specified here, instead of including it in the
+          host list.  This is especially useful if a password has a &quot;@&quot; in it.
          </p>
         </li>
        </ul>
@@ -277,6 +279,14 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
        </td>
       </tr>
 
+      <tr valign="middle">
+       <td align="left">1.2.0</td>
+       <td align="left">
+        Added the <i>username</i> and <i>password</i> 
+        options.
+       </td>
+      </tr>
+
      </tbody>
     
    </table>
@@ -357,7 +367,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
     reuse connections, as creating a connection is a time-intensive process.
    </p></div>
    <div class="example-contents"><p>
-    A persistent connection is identified by the server string and and id 
+    A persistent connection is identified by the server string and an id 
     string. 
    </p></div>
    <div class="example-contents">

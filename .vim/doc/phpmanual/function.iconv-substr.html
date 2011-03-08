@@ -23,7 +23,7 @@
    <span class="type">string</span> <span class="methodname"><b>iconv_substr</b></span>
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$str</tt></span>
    , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$offset</tt></span>
-   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$length</tt><span class="initializer"> = strlen($str)</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$length</tt><span class="initializer"> = iconv_strlen($str, $charset)</span></span>
    [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$charset</tt><span class="initializer"> = ini_get(&quot;iconv.internal_encoding&quot;)</span></span>
   ]] )</div>
 

@@ -6,8 +6,8 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="class.amqpconnection.html">AMQPConnection</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="amqpconnection.isconnected.html">AMQPConnection::isConnected</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="amqpconnection.connect.html">AMQPConnection::connect</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="amqpconnection.disconnect.html">AMQPConnection::disconnect</a></div>
  <div class="up"><a href="class.amqpconnection.html">AMQPConnection</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="amqpconnection.construct" class="refentry">
@@ -42,12 +42,57 @@
 
       <p class="para">
        The <i><tt class="parameter">credentials</tt></i> is an optional array of credential information for connecting to the AMQP
-       broker. The keys used in the <i><tt class="parameter">credentials</tt></i> array are: host, port, vhost, login and password.
-       All other keys will be ignored.
-       </p>
-      <p class="para">
-       For each missing credential, the extension will check the ini settings or use the default value.
+       broker.
       </p>
+      <table class="doctable table">
+       <caption><b>Supported indexes</b></caption>
+       
+        <thead valign="middle">
+         <tr valign="middle">
+          <th>key</th>
+          <th>Description</th>
+          <th>Default value</th>
+         </tr>
+
+        </thead>
+
+        <tbody valign="middle" class="tbody">
+         <tr valign="middle">
+          
+          <td align="left"><em class="emphasis">host</em></td>
+          <td align="left">The host to connect too <blockquote><p><b class="note">Note</b>: <span class="simpara">Max 32 characters</span></p></blockquote></td>
+          <td align="left"><a href="amqp.configuration.html#ini.amqp.host" class="link">amqp.host</a></td>
+         </tr>
+
+         <tr valign="middle">
+          <td align="left"><em class="emphasis">port</em></td>
+          <td align="left">Port on the host</td>
+          <td align="left"><a href="amqp.configuration.html#ini.amqp.port" class="link">amqp.port</a></td>
+         </tr>
+
+         <tr valign="middle">
+          <td align="left"><em class="emphasis">vhost</em></td>
+          <td align="left">The virtual host on the host <blockquote><p><b class="note">Note</b>: <span class="simpara">Max 32 characters</span></p></blockquote></td>
+          <td align="left"><a href="amqp.configuration.html#ini.amqp.vhost" class="link">amqp.vhost</a></td>
+         </tr>
+
+         <tr valign="middle">
+          <td align="left"><em class="emphasis">login</em></td>
+          <td align="left">The login name to use. <blockquote><p><b class="note">Note</b>: <span class="simpara">Max 32 characters</span></p></blockquote></td>
+          <td align="left"><a href="amqp.configuration.html#ini.amqp.login" class="link">amqp.login</a></td>
+         </tr>
+
+         <tr valign="middle">
+          <td align="left"><em class="emphasis">password</em></td>
+          <td align="left">Password <blockquote><p><b class="note">Note</b>: <span class="simpara">Max 32 characters</span></p></blockquote></td>
+          <td align="left"><a href="amqp.configuration.html#ini.amqp.password" class="link">amqp.password</a></td>
+         </tr>
+
+        </tbody>
+       
+      </table>
+
+      <p class="para">All other keys will be ignored.</p>
      </dd>
 
     </dt>
@@ -66,6 +111,15 @@
  </div>
 
 
+ <div class="refsect1 errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws <b class="classname">AMQPException</b> exception on parameter parsing
+   failures, and option errors.
+  </p>
+ </div>
+
+
  <div class="refsect1 examples">
   <h3 class="title">Examples</h3>
   <p class="para">
@@ -73,7 +127,7 @@
     <p><b>Example #1 <span class="function"><b>AMQPConnection::__construct()</b></span> example</b></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;connection&nbsp;using&nbsp;all&nbsp;default&nbsp;credentials:&nbsp;*/<br /></span><span style="color: #0000BB">$connection1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPConnection</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$connection2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPConnection</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'host'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'example.host'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'vhost'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'/'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'port'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">5763</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'login'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'user'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'password'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'password'<br /></span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;connection&nbsp;using&nbsp;the&nbsp;INI&nbsp;values&nbsp;*/<br /></span><span style="color: #0000BB">$connection1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPConnection</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;Specifying&nbsp;all&nbsp;keys&nbsp;*/<br /></span><span style="color: #0000BB">$connection2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPConnection</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'host'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'example.host'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'vhost'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'/'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'port'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">5763</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'login'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'user'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'password'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'password'<br /></span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -83,10 +137,19 @@
  </div>
 
 
+ <div class="refsect1 notes">
+  <h3 class="title">Notes</h3>
+  <blockquote><p><b class="note">Note</b>: 
+   <p class="para">
+    A connection will not be established untill
+     <span class="methodname"><a href="amqpconnection.connect.html" class="methodname">AMQPConnection::connect()</a></span> is called.
+   </p>
+  </p></blockquote>
+ </div>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="class.amqpconnection.html">AMQPConnection</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="amqpconnection.isconnected.html">AMQPConnection::isConnected</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="amqpconnection.connect.html">AMQPConnection::connect</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="amqpconnection.disconnect.html">AMQPConnection::disconnect</a></div>
  <div class="up"><a href="class.amqpconnection.html">AMQPConnection</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

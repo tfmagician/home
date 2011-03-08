@@ -21,7 +21,8 @@
   <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><b>ZipArchive::getNameIndex</b></span>
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$index</tt></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$flags</tt></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    Returns the name of an entry using its index.
@@ -40,6 +41,19 @@
 
       <p class="para">
        Index of the entry.
+      </p>
+     </dd>
+
+    </dt>
+
+    <dt>
+
+     <span class="term"><i><tt class="parameter">flags</tt></i></span>
+     <dd>
+
+      <p class="para">
+       If flags is set to <b><tt>ZIPARCHIVE::FL_UNCHANGED</tt></b>, the original unchanged
+       name is returned.
       </p>
      </dd>
 

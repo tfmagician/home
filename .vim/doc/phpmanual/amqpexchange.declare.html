@@ -20,10 +20,10 @@
  <div class="refsect1 description">
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><b>AMQPExchange::declare</b></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><b>AMQPExchange::declare</b></span>
     ([ <span class="methodparam"><span class="type">string</span> <tt class="parameter">$exchange_name</tt><span class="initializer"> = &quot;&quot;</span></span>
    [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$exchange_type</tt><span class="initializer"> = <b><tt>AMQP_EX_TYPE_DIRECT</tt></b></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$flags</tt><span class="initializer"> = NULL</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$flags</tt><span class="initializer"> = 0</span></span>
   ]]] )</div>
 
   <p class="para rdfs-comment">
@@ -88,7 +88,15 @@
  <div class="refsect1 returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
+   Returns <b><tt>TRUE</tt></b> on success or <b><tt>FALSE</tt></b> on failure.
+  </p>
+ </div>
 
+
+ <div class="refsect1 errors">
+  <h3 class="title">Errors/Exceptions</h3>
+  <p class="para">
+   Throws <b class="classname">AMQPExchangeException</b> on failure.
   </p>
  </div>
 
@@ -100,7 +108,7 @@
     <p><b>Example #1 <span class="function"><b>AMQPExchange::declare()</b></span> example</b></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;new&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">$cnn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPConnection</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$ex&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPExchange</span><span style="color: #007700">(</span><span style="color: #0000BB">$cnn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ex</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">declare</span><span style="color: #007700">(</span><span style="color: #DD0000">'new_topic_exchange'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">AMQP_DURABLE&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">AMQP_AUTODELETE</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;Create&nbsp;a&nbsp;new&nbsp;connection&nbsp;*/<br /></span><span style="color: #0000BB">$cnn&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPConnection</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$cnn</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$ex&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AMQPExchange</span><span style="color: #007700">(</span><span style="color: #0000BB">$cnn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$ex</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">declare</span><span style="color: #007700">(</span><span style="color: #DD0000">'new_topic_exchange'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">AMQP_EX_TYPE_DIRECT</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">AMQP_DURABLE&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">AMQP_AUTODELETE</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

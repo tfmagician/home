@@ -56,14 +56,13 @@
 
       <p class="para">
        An array defining the arguments. A valid key is a <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
-       containing a variable name and a valid value is either a filter type,
-       or an <span class="type"><a href="language.types.array.html" class="type array">array</a></span> optionally specifying the filter, flags and
-       options. If the value is an array, valid keys are
-       <i>filter</i> which specifies the filter type,
+       containing a variable name and a valid value is either a <a href="filter.filters.html" class="link">filter type</a>, or an <span class="type"><a href="language.types.array.html" class="type array">array</a></span>
+       optionally specifying the filter, flags and options. If the value is an
+       array, valid keys are <i>filter</i> which specifies the
+       <a href="filter.filters.html" class="link">filter type</a>,
        <i>flags</i> which specifies any flags that apply to the
-       filter, and <i>options</i> which specifies any options
-       that apply to the filter. See the example below for a better
-       understanding.
+       filter, and <i>options</i> which specifies any options that
+       apply to the filter. See the example below for a better understanding.
       </p>
       <p class="para">
        This parameter can be also an integer holding a <a href="filter.constants.html" class="link">filter constant</a>. Then all values in the
@@ -138,12 +137,25 @@ array(6) {
  </div>
 
 
+ <div class="refsect1 notes">
+  <h3 class="title">Notes</h3>
+  <blockquote><p><b class="note">Note</b>: 
+   <p class="para">
+    There is no <i>REQUEST_TIME</i> key in
+    <b><tt>INPUT_SERVER</tt></b> array because it is inserted into the
+    <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER</a></var></var> later.
+   </p>
+  </p></blockquote>
+ </div>
+
+
  <div class="refsect1 seealso">
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.filter-input.html" class="function" rel="rdfs-seeAlso">filter_input()</a> - Gets a specific external variable by name and optionally filters it</span></li>
     <li class="member"><span class="function"><a href="function.filter-var-array.html" class="function" rel="rdfs-seeAlso">filter_var_array()</a> - Gets multiple variables and optionally filters them</span></li>
+    <li class="member"><a href="filter.filters.html" class="xref">Types of filters</a></li>
    </ul>
   </p>
  </div>

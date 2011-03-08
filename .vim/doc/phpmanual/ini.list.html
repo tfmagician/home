@@ -17,6 +17,10 @@
    PHP setup.
   </p>
   <p class="para">
+   The &quot;Changeable&quot; column shows the modes determining when and where a directive may be set.  
+   See the <a href="configuration.changes.modes.html" class="link">Changeable mode values</a> section for their definitions.
+  </p>
+  <p class="para">
    <table class="doctable table">
     <caption><b>Configuration options</b></caption>
     
@@ -2914,9 +2918,11 @@ certainly be <em class="emphasis">removed</em> in the future.</td>
 
       <tr valign="middle">
        <td align="left">serialize_precision</td>
-       <td align="left">&quot;100&quot;</td>
+       <td align="left">&quot;17&quot;</td>
        <td align="left">PHP_INI_ALL</td>
-       <td align="left">Available since PHP 4.3.2.</td>
+       <td align="left">
+        Available since PHP 4.3.2. Until PHP 5.3.5, the default value was 100.
+       </td>
       </tr>
 
       <tr valign="middle">

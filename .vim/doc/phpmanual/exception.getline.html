@@ -25,7 +25,7 @@
    )</div>
 
   <p class="para rdfs-comment">
-   Returns line number where the exception was thrown.
+   Get line number where the exception was created.
   </p>
  </div>
 
@@ -39,7 +39,7 @@
  <div class="refsect1 returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   Returns the line number where the exception was thrown.
+   Returns the line number where the exception was created.
   </p>
  </div>
 
@@ -51,7 +51,7 @@
     <p><b>Example #1 <span class="function"><b>Exception::getLine()</b></span> example</b></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">"Some&nbsp;error&nbsp;message"</span><span style="color: #007700">);<br />}&nbsp;catch(</span><span style="color: #0000BB">Exception&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;exception&nbsp;was&nbsp;thrown&nbsp;on&nbsp;line:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getLine</span><span style="color: #007700">();<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">Exception</span><span style="color: #007700">(</span><span style="color: #DD0000">"Some&nbsp;error&nbsp;message"</span><span style="color: #007700">);<br />}&nbsp;catch(</span><span style="color: #0000BB">Exception&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;exception&nbsp;was&nbsp;created&nbsp;on&nbsp;line:&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getLine</span><span style="color: #007700">();<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -60,7 +60,7 @@
 something similar to:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-The exception was thrown on line: 3
+The exception was created on line: 3
 </pre></div>
     </div>
    </div>

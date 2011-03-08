@@ -17,7 +17,7 @@
   Connecting to MongoDB can be as easy as <i>new Mongo</i>, but 
   there are many additional options and configurations. The 
   <span class="function"><a href="mongo.construct.html" class="function">Mongo::__construct()</a></span> page covers all of the API options,
-  but this page gives some more practical use cases.
+  but this page gives some more details and advice for practical use cases.
  </p>
 
  <div class="section">
@@ -108,37 +108,6 @@
   <p class="para">
    For more information on replica sets, see the 
    <a href="http://www.mongodb.org/display/DOCS/Replication" class="link external">&raquo; core documentation</a>.
-  </p>
- </div>
-
- <div class="section">
-  <h2 class="title">Distributing Reads</h2>
-  <p class="para">
-   One way of using replica sets is to perform reads on the slaves to take some
-   load off of the master.  The driver will not do this automatically for you, 
-   but you can set it up yourself.
-  </p>
-  <p class="para">
-   First, connect to the replica set using the <i>replicaSet</i>
-   option.  This will give you a connection to the replica set&#039;s master.  Use
-   this connection to call the <i>ismaster</i> command, which lists
-   all of the slaves in the replica set.
-  </p>
-  <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Mongo</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost:27017"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"replicaSet"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">admin</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">command</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"ismaster"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-  </div>
-
-  <p class="para">
-   Now, create connections to the hosts listed in the &quot;hosts&quot; and &quot;passives&quot;
-   fields (passives are members of the set that can never become master).  Do 
-   not use <i>replicaSet =&gt; true</i>, or the driver will 
-   automatically find and use the master.)  Then you can distribute reads among 
-   these connections.  Make sure to set 
-   <i>MongoCursor::slaveOkay</i> to <b><tt>TRUE</tt></b> before attempting to read
-   from a slave.
   </p>
  </div>
 

@@ -39,6 +39,39 @@
    </div>
    
 
+<div class="section" id="ref.pdo-mysql.installation" name="ref.pdo-mysql.installation">
+ <h2 class="title">Installation</h2>
+ <p class="para">
+  Use <strong class="option configure">--with-pdo-mysql[=DIR]</strong>
+ to install
+  the PDO MySQL extension, where the optional <i>[=DIR]</i>
+  is the MySQL base install directory. If <a href="book.mysqlnd.html" class="link">mysqlnd</a>
+  is passed as <i>[=DIR]</i>, then the MySQL native driver will be used.
+ </p>
+ <p class="para">
+  Optionally, the <strong class="option configure">--with-mysql-sock[=DIR]</strong>
+ sets to location
+  to the MySQL unix socket pointer for all MySQL extensions, including PDO_MYSQL. If
+  unspecified, the default locations are searched.
+ </p>
+ <p class="para">
+  Optionally, the <strong class="option configure">--with-zlib-dir[=DIR]</strong>
+ is used to set
+  the path to the libz install prefix.
+ </p>
+ <p class="para">
+  <div class="example-contents screen">
+<div class="cdata"><pre>
+$ ./configure --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
+</pre></div>
+  </div>
+ </p>
+</div>
+
+
+
+   
+
 <div class="section" id="pdo-mysql.constants" name="pdo-mysql.constants">
  <h2 class="title">Predefined Constants</h2>
  <p class="simpara">The constants below are defined by

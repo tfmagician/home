@@ -99,10 +99,15 @@ $ some_application | some_filter | php | sort -u &gt; final_output.txt
    can be passed to your script is not limited by PHP (the shell has a certain
    size limit in the number of characters which can be passed; usually you won&#039;t
    hit this limit). The arguments passed to your script are available in the
-   global array <var class="varname"><var class="varname"><a href="reserved.variables.argv.html" class="classname">$argv</a></var></var>. The zero index always contains the
-   script name (which is <i>-</i> in case the PHP codeis coming from
-   either standard input or from the command line switch <strong class="option unknown">-r</strong>
-).
+   global array <var class="varname"><var class="varname"><a href="reserved.variables.argv.html" class="classname">$argv</a></var></var>. The first index (zero) always contains the
+   name of the script as called from the command line.  Note that, if the code is
+   executed in-line using the command line switch <strong class="option unknown">-r</strong>
+, the value of
+   <var class="varname"><var class="varname"><a href="reserved.variables.argv.html" class="classname">$argv[0]</a></var></var> will be simply a dash (<i>-</i>).  The
+   same is true if the code is executed via a pipe from <i>STDIN</i>.
+  </p>
+
+  <p class="para">
    The second registered global variable is <var class="varname"><var class="varname"><a href="reserved.variables.argc.html" class="classname">$argc</a></var></var> which
    contains the number of elements in the <var class="varname"><var class="varname"><a href="reserved.variables.argv.html" class="classname">$argv</a></var></var> array
    (<em class="emphasis">not</em> the number of arguments passed to the
@@ -269,7 +274,7 @@ array(4) {
   <p class="para">
    If you are on Windows, PHP can be configured to run without the need to
    supply the <var class="filename">C:\php\php.exe</var> or the <i>.php</i>
-   extension, as descibed in <a href="install.windows.commandline.html" class="link">Command
+   extension, as described in <a href="install.windows.commandline.html" class="link">Command
    Line PHP on Microsoft Windows</a>.
   </p>
  </div><hr /><div class="manualnavbar" style="text-align: center;">

@@ -507,6 +507,10 @@
            <td align="left" valign="top">
             The number of milliseconds to wait while trying to connect. Use 0 to
             wait indefinitely.
+            
+            If libcurl is built to use the standard system name resolver, that
+            portion of the connect will still use full-second resolution for
+            timeouts with a minimum timeout allowed of one second.
            </td>
            <td align="left" valign="top">
             Added in cURL 7.16.2. Available since PHP 5.2.3.
@@ -788,6 +792,10 @@
            <td align="left" valign="top">
             The maximum number of milliseconds to allow cURL functions to
             execute.
+            
+            If libcurl is built to use the standard system name resolver, that
+            portion of the connect will still use full-second resolution for
+            timeouts with a minimum timeout allowed of one second.
            </td>
            <td align="left" valign="top">
             Added in cURL 7.16.2. Available since PHP 5.2.3.
@@ -833,6 +841,7 @@
             <b><tt>CURLOPT_SSL_VERIFYPEER</tt></b>.
            </td>
            <td align="left" valign="top">
+            Requires absolute path.
            </td>
           </tr>
 
@@ -974,8 +983,10 @@
             <span class="simpara">
              The full data to post in a HTTP &quot;POST&quot; operation.
              To post a file, prepend a filename with <i>@</i> and
-             use the full path. This can either be passed as a urlencoded 
-             string like &#039;<i>para1=val1&amp;para2=val2&amp;...</i>&#039; 
+             use the full path. The filetype can be explicitly specified by
+             following the filename with the type in the format
+             &#039;<i>;type=mimetype</i>&#039;. This parameter can either be
+             passed as a urlencoded string like &#039;<i>para1=val1&amp;para2=val2&amp;...</i>&#039; 
              or as an array with the field name as key and field data as value.
              If <i><tt class="parameter">value</tt></i> is an array, the
              <i>Content-Type</i> header will be set to

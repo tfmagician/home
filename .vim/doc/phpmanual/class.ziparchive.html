@@ -50,8 +50,10 @@
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="function.ziparchive-addfile.html" class="methodname">addFile</a></span>
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$filename</tt></span>
-   [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$localname</tt></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$localname</tt><span class="initializer"> = <b><tt>NULL</tt></b></span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$start</tt><span class="initializer"> = 0</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$length</tt><span class="initializer"> = 0</span></span>
+  ]]] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="function.ziparchive-addfromstring.html" class="methodname">addFromString</a></span>
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$localname</tt></span>
@@ -76,8 +78,8 @@
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><a href="function.ziparchive-getarchivecomment.html" class="methodname">getArchiveComment</a></span>
-    ( <span class="methodparam">void</span>
-   )</div>
+    ([ <span class="methodparam"><span class="type">int</span> <tt class="parameter">$flags</tt></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><a href="function.ziparchive-getcommentindex.html" class="methodname">getCommentIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$index</tt></span>
@@ -91,17 +93,20 @@
 <div class="methodsynopsis dc-description">
    <span class="type">mixed</span> <span class="methodname"><a href="function.ziparchive-getfromindex.html" class="methodname">getFromIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$index</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$length</tt><span class="initializer"> = 0</span></span>
    [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$flags</tt></span>
-  ] )</div>
+  ]] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">mixed</span> <span class="methodname"><a href="function.ziparchive-getfromname.html" class="methodname">getFromName</a></span>
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$name</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$length</tt><span class="initializer"> = 0</span></span>
    [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$flags</tt></span>
-  ] )</div>
+  ]] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><a href="function.ziparchive-getnameindex.html" class="methodname">getNameIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <tt class="parameter">$index</tt></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$flags</tt></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><a href="function.ziparchive-getstatusstring.html" class="methodname">getStatusString</a></span>
     ( <span class="methodparam">void</span>
@@ -156,7 +161,7 @@
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">mixed</span> <span class="methodname"><a href="function.ziparchive-unchangeall.html" class="methodname">unchangeAll</a></span>
-     ( <span class="methodparam">void</span>
+    ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">mixed</span> <span class="methodname"><a href="function.ziparchive-unchangearchive.html" class="methodname">unchangeArchive</a></span>

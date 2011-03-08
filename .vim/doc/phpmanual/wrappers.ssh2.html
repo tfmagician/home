@@ -6,13 +6,20 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="wrappers.phar.html">Phar</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="wrappers.rar.html">Rar</a></div>
- <div class="up"><a href="wrappers.html">List of Supported Protocols/Wrappers</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="wrappers.phar.html">phar://</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="wrappers.rar.html">rar://</a></div>
+ <div class="up"><a href="wrappers.html">Supported Protocols and Wrappers</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
-</div><hr /><div id="wrappers.ssh2" class="section">
-  <h2 class="title">Secure Shell 2</h2>
-  <p class="simpara">
+</div><hr /><div id="wrappers.ssh2" class="refentry">
+ <div class="refnamediv">
+  <h1 class="refname">ssh2://</h1>
+  <p class="refpurpose"><span class="refname">ssh2://</span> &mdash; <span class="dc-title">Secure Shell 2</span></p>
+
+ </div>
+
+ <div class="refsect1 description">
+  <h3 class="title">Description</h3>
+  <p class="para">
    <var class="filename">ssh2.shell://</var>
    <var class="filename">ssh2.exec://</var>
    <var class="filename">ssh2.tunnel://</var>
@@ -20,13 +27,6 @@
    <var class="filename">ssh2.scp://</var>
    PHP 4.3.0 and up (PECL)
   </p>
-
-  <ul class="itemizedlist">
-   <li class="listitem"><span class="simpara"><var class="filename">ssh2.shell://user:pass@example.com:22/xterm</var></span></li>
-   <li class="listitem"><span class="simpara"><var class="filename">ssh2.exec://user:pass@example.com:22/usr/local/bin/somecmd</var></span></li>
-   <li class="listitem"><span class="simpara"><var class="filename">ssh2.tunnel://user:pass@example.com:22/192.168.0.1:14</var></span></li>
-   <li class="listitem"><span class="simpara"><var class="filename">ssh2.sftp://user:pass@example.com:22/path/to/filename</var></span></li>
-  </ul>
 
   <blockquote><p><b class="note">Note</b>: 
    <b>This wrapper is not enabled by default</b><br />
@@ -42,17 +42,22 @@
    will also reuse open connections by passing the connection resource in the
    host portion of the URL.
   </p>
+ </div>
 
-  <div class="example">
-   <p><b>Example #1 Opening a stream from an active connection</b></p>
-   <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$session&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ssh2_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'example.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">22</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ssh2_auth_pubkey_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$session</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/home/username/.ssh/id_rsa.pub'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/home/username/.ssh/id_rsa'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stream&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"ssh2.tunnel://</span><span style="color: #0000BB">$session</span><span style="color: #DD0000">/remote.example.com:1234"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-   </div>
 
-  </div>
+ <div class="refsect1 usage"> 
+  <h3 class="title">Options</h3>
+  <ul class="itemizedlist">
+   <li class="listitem"><span class="simpara"><var class="filename">ssh2.shell://user:pass@example.com:22/xterm</var></span></li>
+   <li class="listitem"><span class="simpara"><var class="filename">ssh2.exec://user:pass@example.com:22/usr/local/bin/somecmd</var></span></li>
+   <li class="listitem"><span class="simpara"><var class="filename">ssh2.tunnel://user:pass@example.com:22/192.168.0.1:14</var></span></li>
+   <li class="listitem"><span class="simpara"><var class="filename">ssh2.sftp://user:pass@example.com:22/path/to/filename</var></span></li>
+  </ul>
+ </div>
+ 
+
+ <div class="refsect1 options">
+  <h3 class="title">Options</h3>
   <p class="para">
    <table class="doctable table">
     <caption><b>Wrapper Summary</b></caption>
@@ -166,6 +171,8 @@
 
   </p>
 
+
+  
   <p class="para">
    <table class="doctable table">
     <caption><b>Context options</b></caption>
@@ -263,11 +270,28 @@
    </table>
 
   </p>
+ </div>
+ 
+
+ <div class="refsect1 examples">
+  <h3 class="title">Examples</h3>
+  <div class="example">
+   <p><b>Example #1 Opening a stream from an active connection</b></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$session&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ssh2_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'example.com'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">22</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">ssh2_auth_pubkey_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$session</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/home/username/.ssh/id_rsa.pub'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/home/username/.ssh/id_rsa'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'secret'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$stream&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"ssh2.tunnel://</span><span style="color: #0000BB">$session</span><span style="color: #DD0000">/remote.example.com:1234"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+ </div>
 
 
- </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="wrappers.phar.html">Phar</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="wrappers.rar.html">Rar</a></div>
- <div class="up"><a href="wrappers.html">List of Supported Protocols/Wrappers</a></div>
+</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="wrappers.phar.html">phar://</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="wrappers.rar.html">rar://</a></div>
+ <div class="up"><a href="wrappers.html">Supported Protocols and Wrappers</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

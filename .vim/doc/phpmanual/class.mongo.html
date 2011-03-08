@@ -20,11 +20,10 @@
   <div class="section" id="mongo.intro" name="mongo.intro">
    <h2 class="title">Introduction</h2>
    <p class="para">
-    The connection point between MongoDB and PHP.
+    A connection between PHP and MongoDB.
    </p>
    <p class="para">
-    This class is used to initiate a connection and for database server commands.
-    A typical use is:
+    This class is used to create and manage connections. A typical use is:
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Mongo</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;connect<br /></span><span style="color: #0000BB">$db&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;get&nbsp;the&nbsp;database&nbsp;named&nbsp;"foo"<br /><br /></span><span style="color: #0000BB">?&gt;</span>
@@ -34,8 +33,9 @@
 
    </p>
    <p class="para">
-    See <span class="function"><a href="mongo.construct.html" class="function">Mongo::__construct()</a></span> for more information about 
-    creating connections.
+    See <span class="function"><a href="mongo.construct.html" class="function">Mongo::__construct()</a></span> and the section on
+    <a href="mongo.connecting.html" class="link">connecting</a> for more information 
+    about creating connections.
    </p>
   </div>
   
@@ -110,15 +110,15 @@
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* Methods */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">boolean</span> <span class="methodname"><a href="mongo.close.html" class="methodname">close</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.close.html" class="methodname">close</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">boolean</span> <span class="methodname"><a href="mongo.connect.html" class="methodname">connect</a></span>
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.connect.html" class="methodname">connect</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">protected</span> <span class="type">boolean</span> <span class="methodname"><a href="mongo.connectutil.html" class="methodname">connectUtil</a></span>
+   <span class="modifier">protected</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.connectutil.html" class="methodname">connectUtil</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -135,6 +135,18 @@
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$dbname</tt></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongo.getHosts.html" class="methodname">getHosts</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="mongo.getslave.html" class="methodname">getSlave</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.getslaveokay.html" class="methodname">getSlaveOkay</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongo.listdbs.html" class="methodname">listDBs</a></span>
     ( <span class="methodparam">void</span>
    )</div>
@@ -146,6 +158,14 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">MongoDB</span> <span class="methodname"><a href="mongo.selectdb.html" class="methodname">selectDB</a></span>
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$name</tt></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongo.setslaveokay.html" class="methodname">setSlaveOkay</a></span>
+    ([ <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$ok</tt></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="mongo.switchslave.html" class="methodname">switchSlave</a></span>
+    ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="mongo.tostring.html" class="methodname">__toString</a></span>
@@ -299,7 +319,37 @@
 
 
 
-<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongo.close.html">Mongo::close</a> — Closes this database connection</li><li><a href="mongo.connect.html">Mongo::connect</a> — Connects to a database server</li><li><a href="mongo.connectutil.html">Mongo::connectUtil</a> — Connects with a database server</li><li><a href="mongo.construct.html">Mongo::__construct</a> — Creates a new database connection object</li><li><a href="mongo.dropdb.html">Mongo::dropDB</a> — Drops a database [deprecated]</li><li><a href="mongo.get.html">Mongo::__get</a> — Gets a database</li><li><a href="mongo.listdbs.html">Mongo::listDBs</a> — Lists all of the databases available.</li><li><a href="mongo.selectcollection.html">Mongo::selectCollection</a> — Gets a database collection</li><li><a href="mongo.selectdb.html">Mongo::selectDB</a> — Gets a database</li><li><a href="mongo.tostring.html">Mongo::__toString</a> — String representation of this connection</li></ul>
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+<h2>Table of Contents</h2><ul class="chunklist chunklist_reference"><li><a href="mongo.close.html">Mongo::close</a> — Closes this connection</li><li><a href="mongo.connect.html">Mongo::connect</a> — Connects to a database server</li><li><a href="mongo.connectutil.html">Mongo::connectUtil</a> — Connects with a database server</li><li><a href="mongo.construct.html">Mongo::__construct</a> — Creates a new database connection object</li><li><a href="mongo.dropdb.html">Mongo::dropDB</a> — Drops a database [deprecated]</li><li><a href="mongo.get.html">Mongo::__get</a> — Gets a database</li><li><a href="mongo.getHosts.html">Mongo::getHosts</a> — Updates status for all hosts associated with this</li><li><a href="mongo.getslave.html">Mongo::getSlave</a> — Returns the address being used by this for slaveOkay reads</li><li><a href="mongo.getslaveokay.html">Mongo::getSlaveOkay</a> — Get slaveOkay setting for this connection</li><li><a href="mongo.listdbs.html">Mongo::listDBs</a> — Lists all of the databases available.</li><li><a href="mongo.selectcollection.html">Mongo::selectCollection</a> — Gets a database collection</li><li><a href="mongo.selectdb.html">Mongo::selectDB</a> — Gets a database</li><li><a href="mongo.setslaveokay.html">Mongo::setSlaveOkay</a> — Change slaveOkay setting for this connection</li><li><a href="mongo.switchslave.html">Mongo::switchSlave</a> — Choose a new slave for slaveOkay reads</li><li><a href="mongo.tostring.html">Mongo::__toString</a> — String representation of this connection</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mongo.core.html">Core Classes</a></div>

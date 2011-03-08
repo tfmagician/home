@@ -63,7 +63,7 @@
       </p>
       <p class="para">
        The function named by <i><tt class="parameter">handler</tt></i> must accept
-       three parameters, and should return an integer value. If the
+       two parameters, and should return an integer value. If the
        value returned from the handler is <b><tt>FALSE</tt></b> (which it will be if no
        value is returned), the XML parser will stop parsing and
        <span class="function"><a href="function.xml-get-error-code.html" class="function">xml_get_error_code()</a></span> will return
@@ -71,7 +71,6 @@
        <div class="methodsynopsis dc-description">
          <span class="methodname"><span class="replaceable">handler</span></span>
          ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$parser</tt></span>
-        , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$user_data</tt></span>
         , <span class="methodparam"><span class="type">string</span> <tt class="parameter">$prefix</tt></span>
         )</div>
 
@@ -92,21 +91,11 @@
 
         <dt>
 
-         <span class="term"><i><tt class="parameter">user_data</tt></i></span>
-         <dd>
-
-          <span class="simpara">
-          </span>
-         </dd>
-
-        </dt>
-
-        <dt>
-
          <span class="term"><i><tt class="parameter">prefix</tt></i></span>
          <dd>
 
           <span class="simpara">
+           The prefix is a string used to reference the namespace within an XML object.
           </span>
          </dd>
 

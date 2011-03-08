@@ -22,16 +22,12 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><b>Memcache::delete</b></span>
     ( <span class="methodparam"><span class="type">string</span> <tt class="parameter">$key</tt></span>
-   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$timeout</tt></span>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$timeout</tt><span class="initializer"> = 0</span></span>
   ] )</div>
 
 
   <p class="para rdfs-comment">
-   <span class="function"><b>Memcache::delete()</b></span> deletes item with the 
-   <i><tt class="parameter">key</tt></i>. If parameter <i><tt class="parameter">timeout</tt></i>
-   is specified, the item will expire after
-   <i><tt class="parameter">timeout</tt></i> seconds.
-   Also you can use <span class="function"><b>memcache_delete()</b></span> function.
+   <span class="function"><b>Memcache::delete()</b></span> deletes an item with the <i><tt class="parameter">key</tt></i>. 
   </p>
 
  </div>
@@ -60,9 +56,8 @@
      <dd>
 
       <p class="para">
-       Execution time of the item. If it&#039;s equal to zero, the item will be
-       deleted right away whereas if you set it to 30, the item will be
-       deleted in 30 seconds. 
+       This deprecated parameter is not supported, and defaults to <i>0</i> seconds.
+       Do not use this parameter.
       </p>
      </dd>
 
@@ -71,6 +66,37 @@
    </dl>
 
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog">
+  <h3 class="title">Changelog</h3>
+  <table class="doctable informaltable">
+   
+    <thead valign="middle">
+     <tr valign="middle">
+      <th>Version</th>
+      <th>Description</th>
+     </tr>
+
+    </thead>
+
+    <tbody valign="middle" class="tbody">
+     <tr valign="middle">
+      <td align="left">Unknown</td>
+      <td align="left">
+       
+       It&#039;s not recommended to use the <i><tt class="parameter">timeout</tt></i> parameter. The
+       behavior differs between memcached versions, but setting to <i>0</i>
+       is safe. Other values for this deprecated feature may cause the memcache delete
+       to fail.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 
@@ -89,7 +115,7 @@
     <p><b>Example #1 <span class="function"><b>Memcache::delete()</b></span> example</b></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;procedural&nbsp;API&nbsp;*/<br /></span><span style="color: #0000BB">$memcache_obj&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">memcache_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'memcache_host'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;after&nbsp;10&nbsp;seconds&nbsp;item&nbsp;will&nbsp;be&nbsp;deleted&nbsp;by&nbsp;the&nbsp;server&nbsp;*/<br /></span><span style="color: #0000BB">memcache_delete</span><span style="color: #007700">(</span><span style="color: #0000BB">$memcache_obj</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'key_to_delete'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;OO&nbsp;API&nbsp;*/<br /></span><span style="color: #0000BB">$memcache_obj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcache</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$memcache_obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'memcache_host'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$memcache_obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">delete</span><span style="color: #007700">(</span><span style="color: #DD0000">'key_to_delete'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">/*&nbsp;procedural&nbsp;API&nbsp;*/<br /></span><span style="color: #0000BB">$memcache_obj&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">memcache_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'memcache_host'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;item&nbsp;will&nbsp;be&nbsp;deleted&nbsp;by&nbsp;the&nbsp;server&nbsp;*/<br /></span><span style="color: #0000BB">memcache_delete</span><span style="color: #007700">(</span><span style="color: #0000BB">$memcache_obj</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'key_to_delete'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;OO&nbsp;API&nbsp;*/<br /></span><span style="color: #0000BB">$memcache_obj&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Memcache</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$memcache_obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">connect</span><span style="color: #007700">(</span><span style="color: #DD0000">'memcache_host'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">11211</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$memcache_obj</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">delete</span><span style="color: #007700">(</span><span style="color: #DD0000">'key_to_delete'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

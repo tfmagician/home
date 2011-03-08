@@ -24,7 +24,8 @@
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$query_data</tt></span>
    [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$numeric_prefix</tt></span>
    [, <span class="methodparam"><span class="type">string</span> <tt class="parameter">$arg_separator</tt></span>
-  ]] )</div>
+   [, <span class="methodparam"><span class="type">int</span> <tt class="parameter">$enc_type</tt><span class="initializer"> = <b><tt>PHP_QUERY_RFC1738</tt></b></span></span>
+  ]]] )</div>
 
   <p class="para rdfs-comment">
    Generates a URL-encoded query string from the associative (or indexed)
@@ -91,6 +92,31 @@
 
     </dt>
 
+    <dt>
+
+     <span class="term"><i><tt class="parameter">enc_type</tt></i></span>
+     <dd>
+
+      <p class="para">
+       By default, <b><tt>PHP_QUERY_RFC1738</tt></b>.
+      </p>
+      <p class="para">
+       If <i><tt class="parameter">enc_type</tt></i> is
+       <b><tt>PHP_QUERY_RFC1738</tt></b>, then encoding is performed per
+       <a href="http://www.faqs.org/rfcs/rfc1738" class="link external">&raquo; RFC 1738</a> and the
+       <i>application/x-www-form-urlencoded</i> media type, which
+       implies that spaces are encoded as plus (<i>+</i>) signs.
+      </p>
+      <p class="para">
+       If <i><tt class="parameter">enc_type</tt></i> is
+       <b><tt>PHP_QUERY_RFC3986</tt></b>, then encoding is performed
+       according to <a href="http://www.faqs.org/rfcs/rfc3986" class="link external">&raquo; RFC 3986</a>, and
+       spaces will be percent encoded (<i>%20</i>).
+      </p>
+     </dd>
+
+    </dt>
+
    </dl>
 
   </p>
@@ -130,6 +156,13 @@
        <td align="left">5.1.3</td>
        <td align="left">
         Square brackets are escaped.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">5.3.6</td>
+       <td align="left">
+        The <i><tt class="parameter">enc_type</tt></i> parameter was added.
        </td>
       </tr>
 

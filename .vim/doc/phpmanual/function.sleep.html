@@ -57,16 +57,15 @@
  <div class="refsect1 returnvalues">
   <h3 class="title">Return Values</h3>
   <p class="para">
-   On all platforms, <span class="function"><b>sleep()</b></span> returns <b><tt>FALSE</tt></b> if the
-   <i><tt class="parameter">seconds</tt></i> parameter is invalid.
+   Returns zero on success, or <b><tt>FALSE</tt></b> on error.
   </p>
   <p class="para">
-   On Windows, provided the aforementioned <i><tt class="parameter">seconds</tt></i>
-   parameter is valid, <span class="function"><b>sleep()</b></span> always returns <b><tt>NULL</tt></b>.
-  </p>
-  <p class="para">
-   On other platforms, <span class="function"><b>sleep()</b></span> returns zero on success, or
-   the number of seconds left to sleep if interrupted by a signal.
+   If the call was interrupted by a signal, <span class="function"><b>sleep()</b></span> returns
+   a non-zero value. On Windows, this value will always be
+   <i>192</i> (the value of the
+   <b><tt>WAIT_IO_COMPLETION</tt></b> constant within the Windows API).
+   On other platforms, the return value will be the number of seconds left to
+   sleep.
   </p>
  </div>
 
@@ -76,6 +75,37 @@
   <p class="para">
    If the specified number of <i><tt class="parameter">seconds</tt></i> is negative,
    this function will generate a <b><tt>E_WARNING</tt></b>.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">5.3.4</td>
+       <td align="left">
+        Before PHP 5.3.4, on Windows, <span class="function"><b>sleep()</b></span> always
+        returns <b><tt>NULL</tt></b> when sleep has occurred, regardless of whether the
+        sleep was interrupted or not.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

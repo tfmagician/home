@@ -2,18 +2,18 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Is used to get the number of elements</title>
+  <title>Get the number of elements in collection type column using OID</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-col-get.html">cubrid_col_get</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-column-names.html">cubrid_column_names</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.cubrid-col-size" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">cubrid_col_size</h1>
-  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_col_size</span> &mdash; <span class="dc-title">Is used to get the number of elements</span></p>
+  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_col_size</span> &mdash; <span class="dc-title">Get the number of elements in collection type column using OID</span></p>
 
  </div>
 
@@ -27,7 +27,9 @@
    )</div>
 
   <p class="para rdfs-comment">
-    The <span class="function"><b>cubrid_col_size()</b></span> function is used to get the number of elements in a collection type (set, multiset, sequence) attribute.
+    The <span class="function"><b>cubrid_col_size()</b></span> function is used to get the
+    number of elements in a collection type (set, multiset, sequence)
+    attribute.
   </p>
  </div>
 
@@ -49,7 +51,7 @@
 
   <span class="term"><i><tt class="parameter">oid</tt></i></span>
   <dd>
-<p class="para">Oid the instance that you want to work with.</p></dd>
+<p class="para">OID the instance that you want to work with.</p></dd>
 
   </dt>
 
@@ -73,7 +75,36 @@
     Number of elements, when process is successful. 
   </p>
     <p class="para">
-    -1, when process is unsuccessful.
+    <b><tt>FALSE</tt></b>, when process is unsuccessful.
+  </p>
+ </div>
+
+
+<div class="refsect1 changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">8.3.1</td>
+       <td align="left">
+        Change return value: when process is unsuccessful, return false, not -1.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 
@@ -84,19 +115,31 @@
    <p><b>Example #1 <span class="function"><b>cubrid_col_size()</b></span> example</b></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$elem_count&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_col_size&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"tel"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$oid</span><span style="color: #DD0000">&nbsp;(tel)&nbsp;has&nbsp;</span><span style="color: #0000BB">$elem_count</span><span style="color: #DD0000">&nbsp;elements\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /><br />@</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;foo"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;foo(a&nbsp;int&nbsp;AUTO_INCREMENT,&nbsp;b&nbsp;set(int),&nbsp;c&nbsp;list(int),&nbsp;d&nbsp;char(10))"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;foo(a,&nbsp;b,&nbsp;c,&nbsp;d)&nbsp;VALUES(1,&nbsp;{1,2,3},&nbsp;{11,22,33,333},&nbsp;'a')"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CUBRID_INCLUDE_OID</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_move_cursor</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CUBRID_CURSOR_FIRST</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$oid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_current_oid</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$attr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_col_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$attr</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$size&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_col_size</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$size</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_close_request</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
+  <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(3) {
+  [0]=&gt;
+  string(1) &quot;1&quot;
+  [1]=&gt;
+  string(1) &quot;2&quot;
+  [2]=&gt;
+  string(1) &quot;3&quot;
+}
+int(3)
+</pre></div>
+   </div>
   </div>
  </div>
-
-
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-col-get.html">cubrid_col_get</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-column-names.html">cubrid_column_names</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

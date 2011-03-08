@@ -45,8 +45,8 @@
      <dd>
 
       <p class="para">
-       One of the <i>MCRYPT_ciphername</i>
-       constants of the name of the algorithm as string.
+       One of the <b><tt>MCRYPT_ciphername</tt></b>
+       constants, or the name of the algorithm as string.
       </p>
      </dd>
 
@@ -58,7 +58,7 @@
      <dd>
 
       <p class="para">
-       The key with which the data will be encrypted. If it&#039;s smaller that
+       The key with which the data will be encrypted. If it&#039;s smaller than
        the required keysize, it is padded with &#039;<i>\0</i>&#039;. It is
        better not to use ASCII strings for keys.
       </p>
@@ -76,12 +76,12 @@
      <dd>
 
       <p class="para">
-       The data that will be encrypted with the given cipher and mode. If the
-       size of the data is not n * blocksize, the data will be padded with
-       &#039;<i>\0</i>&#039;.
+       The data that will be encrypted with the given <i><tt class="parameter">cipher</tt></i>
+       and <i><tt class="parameter">mode</tt></i>. If the size of the data is not n * blocksize,
+       the data will be padded with &#039;<i>\0</i>&#039;.
       </p>
       <p class="para">
-       The returned crypttext can be larger that the size of the data that is
+       The returned crypttext can be larger than the size of the data that was
        given by <i><tt class="parameter">data</tt></i>.
       </p>
      </dd>
@@ -94,9 +94,9 @@
      <dd>
 
       <p class="para">
-       One of the <i>MCRYPT_MODE_modename</i>
-       constants of one of &quot;ecb&quot;, &quot;cbc&quot;, &quot;cfb&quot;, &quot;ofb&quot;, &quot;nofb&quot; or
-       &quot;stream&quot;.
+       One of the <b><tt>MCRYPT_MODE_modename</tt></b> constants,
+       or one of the following strings: &quot;ecb&quot;, &quot;cbc&quot;, &quot;cfb&quot;, &quot;ofb&quot;,
+       &quot;nofb&quot; or &quot;stream&quot;.
       </p>
      </dd>
 
@@ -108,10 +108,10 @@
      <dd>
 
       <p class="para">
-       Used for the initialisation in CBC, CFB, OFB modes, and in some
+       Used for the initialization in CBC, CFB, OFB modes, and in some
        algorithms in STREAM mode. If you do not supply an IV, while it is
        needed for an algorithm, the function issues a warning and uses an
-       IV with all bytes set to &#039;<i>\0</i>&#039;.
+       IV with all its bytes set to &#039;<i>\0</i>&#039;.
       </p>
      </dd>
 

@@ -28,6 +28,40 @@ This extension should be used at your own risk.</p></div>
      to enable access from PHP to Oracle databases through the OCI library.
     </p>
    </div>
+   
+   
+
+<div class="section" id="ref.pdo-oci.installation" name="ref.pdo-oci.installation">
+ <h2 class="title">Installation</h2>
+ <p class="para">
+  Use <strong class="option configure">--with-pdo-oci[=DIR]</strong>
+ to install
+  the PDO Oracle OCI extension, where the optional <i>[=DIR]</i>
+  is the Oracle Home directory. <i>[=DIR]</i> defaults to
+  the <var class="varname"><var class="varname">$ORACLE_HOME</var></var> environment variable.
+ </p>
+ <p class="para">
+  Use <strong class="option configure">--with-pdo-oci=instantclient,prefix,version</strong>
+
+  for an Oracle Instant Client <acronym>SDK</acronym>, where prefix and
+  version are configured.
+ </p>
+ <p class="para">
+  <div class="example-contents screen">
+<div class="cdata"><pre>
+// Using $ORACLE_HOME
+$ ./configure --with-pdo-oci
+
+// Using OIC for Linux with 10.2.0.3 RPMs with a /usr prefix
+$ ./configure --with-pdo-oci=instantclient,/usr,10.2.0.3
+</pre></div>
+  </div>
+ </p>
+</div>
+
+
+
+
   </div>
 
   

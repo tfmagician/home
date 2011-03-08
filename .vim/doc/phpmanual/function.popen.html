@@ -75,7 +75,10 @@
    only be used for reading or writing) and must be closed with
    <span class="function"><a href="function.pclose.html" class="function">pclose()</a></span>. This pointer may be used with
    <span class="function"><a href="function.fgets.html" class="function">fgets()</a></span>, <span class="function"><a href="function.fgetss.html" class="function">fgetss()</a></span>, and
-   <span class="function"><a href="function.fwrite.html" class="function">fwrite()</a></span>.
+   <span class="function"><a href="function.fwrite.html" class="function">fwrite()</a></span>. When the mode is &#039;r&#039;, the returned
+   file pointer equals to the STDOUT of the command, when the mode
+   is &#039;w&#039;, the returned file pointer equals to the STDIN of the
+   command.
   </p>
   <p class="para">
    If an error occurs, returns <b><tt>FALSE</tt></b>.

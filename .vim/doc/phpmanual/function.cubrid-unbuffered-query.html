@@ -8,7 +8,7 @@
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-set-drop.html">cubrid_set_drop</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-version.html">cubrid_version</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.cubrid-unbuffered-query" class="refentry">
  <div class="refnamediv">
@@ -26,10 +26,8 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-    This function performs a query without fetching the results into memory. 
-  </p>
-  <p class="para">
-  Known issue: it currently uses the normal version - the one that fetches the results.  
+    This function performs a query without waiting for that all query results have been complete. It will return 
+    when the results are being generated. 
   </p>
  </div>
 
@@ -41,17 +39,17 @@
 
     <dt>
 
-  <span class="term"><i><tt class="parameter">query</tt></i></span>
-  <dd>
+     <span class="term"><i><tt class="parameter">query</tt></i></span>
+     <dd>
 <p class="para">A SQL query.</p></dd>
 
    </dt>
 
      <dt>
 
-  <span class="term"><i><tt class="parameter">conn_identifier</tt></i></span>
-  <dd>
-<p class="para">The CUBRID connection. If the connection identifier is not specified, the last link opened by <span class="function"><a href="function.cubrid-connect.html" class="function">cubrid_connect()</a></span> is assumed.</p></dd>
+      <span class="term"><i><tt class="parameter">conn_identifier</tt></i></span>
+      <dd>
+<p class="para">The CUBRID connection. If the connection identifier is not specified, the last connection opened by <span class="function"><a href="function.cubrid-connect.html" class="function">cubrid_connect()</a></span> is assumed.</p></dd>
 
    </dt>
 
@@ -75,6 +73,19 @@
  </div>
 
 
+ <div class="refsect1 notes">
+  <h3 class="title">Notes</h3>
+  <blockquote><p><b class="note">Note</b>: 
+   <p class="para">
+    The benefits of <span class="function"><b>cubrid_unbuffered_query()</b></span> come
+    at a cost: you cannot use <span class="function"><a href="function.cubrid-num-rows.html" class="function">cubrid_num_rows()</a></span> and
+    <span class="function"><a href="function.cubrid-data-seek.html" class="function">cubrid_data_seek()</a></span> on a result set returned from
+    <span class="function"><b>cubrid_unbuffered_query()</b></span>. 
+   </p>
+  </p></blockquote>
+ </div>
+
+
  <div class="refsect1 examples">
   <h3 class="title">Examples</h3>
   <div class="example">
@@ -93,6 +104,6 @@
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-set-drop.html">cubrid_set_drop</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-version.html">cubrid_version</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

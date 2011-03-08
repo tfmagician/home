@@ -22,13 +22,16 @@
   <div class="methodsynopsis dc-description">
    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><b>forward_static_call_array</b></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.callback" class="type callback">callback</a></span> <tt class="parameter">$function</tt></span>
-   [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$parameters</tt></span>
-  ] )</div>
+   , <span class="methodparam"><span class="type">array</span> <tt class="parameter">$parameters</tt></span>
+   )</div>
 
   <p class="para rdfs-comment">
    Calls a user defined function or method given by the <i><tt class="parameter">function</tt></i>
    parameter. This function must be called within a method context, it can&#039;t be 
-   used outside a class. All arguments of the forwarded method are passed as values,
+   used outside a class.
+   It uses the <a href="language.oop5.late-static-bindings.html" class="link">late static
+   binding</a>.
+   All arguments of the forwarded method are passed as values,
    and as an array, similarly to <span class="function"><a href="function.call-user-func-array.html" class="function">call_user_func_array()</a></span>.
   </p>
  </div>

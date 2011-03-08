@@ -2,18 +2,18 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Is used to update an attribute</title>
+  <title>Update a column using OID</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-prepare.html">cubrid_prepare</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-real-escape-string.html">cubrid_real_escape_string</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-query.html">cubrid_query</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.cubrid-put" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">cubrid_put</h1>
-  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_put</span> &mdash; <span class="dc-title">Is used to update an attribute</span></p>
+  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_put</span> &mdash; <span class="dc-title">Update a column using OID</span></p>
 
  </div>
 
@@ -28,10 +28,16 @@
    )</div>
 
   <p class="para rdfs-comment">
-						The <span class="function"><b>cubrid_put()</b></span> function is used to update an attribute of the instance of the given <i><tt class="parameter">oid</tt></i>.
+      The <span class="function"><b>cubrid_put()</b></span> function is used to update an
+      attribute of the instance of the given <i><tt class="parameter">oid</tt></i>.
   </p>
   <p class="para">
-						You can update single attribute by using string data type to set <i><tt class="parameter">attr</tt></i>.  In such case, you can use integer, float-point, or string type data for the <i><tt class="parameter">value</tt></i> argument. To update multiple number of attributes, you can disregard the <i><tt class="parameter">attr</tt></i> argument, and set <i><tt class="parameter">value</tt></i> argument with associative array data type. However, you cannot use the method for attribute of collection type.  You have to use APIs related to collection type (<span class="function"><a href="function.cubrid-set-add.html" class="function">cubrid_set_add()</a></span>, <span class="function"><a href="function.cubrid-set-drop.html" class="function">cubrid_set_drop()</a></span>, etc) when you want to use <span class="function"><b>cubrid_put()</b></span> on collection typed attribute.
+      You can update single attribute by using string data type to set
+      <i><tt class="parameter">attr</tt></i>.  In such case, you can use integer,
+      float-point, or string type data for the <i><tt class="parameter">value</tt></i>
+      argument. To update multiple number of attributes, you can disregard the
+      <i><tt class="parameter">attr</tt></i> argument, and set
+      <i><tt class="parameter">value</tt></i> argument with associative array data type.
   </p>
  </div>
 
@@ -41,34 +47,34 @@
   <p class="para">
   <dl>
 
-    <dt>
+   <dt>
 
-  <span class="term"><i><tt class="parameter">conn_identifier</tt></i></span>
-  <dd>
+    <span class="term"><i><tt class="parameter">conn_identifier</tt></i></span>
+    <dd>
 <p class="para">Connection identifier.</p></dd>
 
    </dt>
 
    <dt>
 
-  <span class="term"><i><tt class="parameter">oid</tt></i></span>
-  <dd>
-<p class="para">Oid of the instance that you want to update.</p></dd>
+    <span class="term"><i><tt class="parameter">oid</tt></i></span>
+    <dd>
+<p class="para">OID of the instance that you want to update.</p></dd>
 
    </dt>
 
    <dt>
 
-  <span class="term"><i><tt class="parameter">attr</tt></i></span>
-  <dd>
+    <span class="term"><i><tt class="parameter">attr</tt></i></span>
+    <dd>
 <p class="para">Name of the attribute that you want to update.</p></dd>
 
    </dt>
 
    <dt>
 
-  <span class="term"><i><tt class="parameter">value</tt></i></span>
-  <dd>
+    <span class="term"><i><tt class="parameter">value</tt></i></span>
+    <dd>
 <p class="para">New value that you want to assign to the attribute.</p></dd>
 
    </dt>
@@ -96,11 +102,32 @@
    <p><b>Example #1 <span class="function"><b>cubrid_put()</b></span> example</b></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$attrarray&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$attrarray</span><span style="color: #007700">[</span><span style="color: #DD0000">"name"</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">"New&nbsp;Name"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">cubrid_put&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$attrarray</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_put&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"name"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"New&nbsp;Name2"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_put&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"hobbies"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"aa"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bb"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /><br />@</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"DROP&nbsp;TABLE&nbsp;foo"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"CREATE&nbsp;TABLE&nbsp;foo(a&nbsp;int&nbsp;AUTO_INCREMENT,&nbsp;b&nbsp;set(int),&nbsp;c&nbsp;list(int),&nbsp;d&nbsp;char(10))"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;foo(a,&nbsp;b,&nbsp;c,&nbsp;d)&nbsp;VALUES(1,&nbsp;{1,2,3},&nbsp;{11,22,33,333},&nbsp;'a')"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"INSERT&nbsp;INTO&nbsp;foo(a,&nbsp;b,&nbsp;c,&nbsp;d)&nbsp;VALUES(2,&nbsp;{4,5,7},&nbsp;{44,55,66,666},&nbsp;'b')"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CUBRID_INCLUDE_OID</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_move_cursor</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CUBRID_CURSOR_FIRST</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$oid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_current_oid</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$attr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_col_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$attr</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_put</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">8</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$attr&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_col_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$attr</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_close_request</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(3) {
+  [0]=&gt;
+  string(1) &quot;1&quot;
+  [1]=&gt;
+  string(1) &quot;2&quot;
+  [2]=&gt;
+  string(1) &quot;3&quot;
+}
+array(3) {
+  [0]=&gt;
+  string(1) &quot;2&quot;
+  [1]=&gt;
+  string(1) &quot;4&quot;
+  [2]=&gt;
+  string(1) &quot;8&quot;
+}
+</pre></div>
+   </div>
   </div>
  </div>
 
@@ -109,12 +136,12 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist"> 
-    <li class="member"><span class="function"><a href="function.cubrid-get.html" class="function" rel="rdfs-seeAlso">cubrid_get()</a> - Is used to get the attribute</span></li>  
-    <li class="member"><span class="function"><a href="function.cubrid-set-add.html" class="function" rel="rdfs-seeAlso">cubrid_set_add()</a> - Is used to insert a single element</span></li>  
-    <li class="member"><span class="function"><a href="function.cubrid-set-drop.html" class="function" rel="rdfs-seeAlso">cubrid_set_drop()</a> - Is used to delete an element</span></li>  
-    <li class="member"><span class="function"><a href="function.cubrid-seq-insert.html" class="function" rel="rdfs-seeAlso">cubrid_seq_insert()</a> - Is used to insert an element to a sequence</span></li>  
-    <li class="member"><span class="function"><a href="function.cubrid-seq-drop.html" class="function" rel="rdfs-seeAlso">cubrid_seq_drop()</a> - Is used to delete an element</span></li>  
-    <li class="member"><span class="function"><a href="function.cubrid-seq-put.html" class="function" rel="rdfs-seeAlso">cubrid_seq_put()</a> - Is used to update the content</span></li>  
+    <li class="member"><span class="function"><a href="function.cubrid-get.html" class="function" rel="rdfs-seeAlso">cubrid_get()</a> - Get a column using OID</span></li>  
+    <li class="member"><span class="function"><a href="function.cubrid-set-add.html" class="function" rel="rdfs-seeAlso">cubrid_set_add()</a> - Insert a single element to set type column using OID</span></li>  
+    <li class="member"><span class="function"><a href="function.cubrid-set-drop.html" class="function" rel="rdfs-seeAlso">cubrid_set_drop()</a> - Delete an element from set type column using OID</span></li>  
+    <li class="member"><span class="function"><a href="function.cubrid-seq-insert.html" class="function" rel="rdfs-seeAlso">cubrid_seq_insert()</a> - Insert an element to a sequence type column using OID</span></li>  
+    <li class="member"><span class="function"><a href="function.cubrid-seq-drop.html" class="function" rel="rdfs-seeAlso">cubrid_seq_drop()</a> - Delete an element from sequence type column using OID</span></li>  
+    <li class="member"><span class="function"><a href="function.cubrid-seq-put.html" class="function" rel="rdfs-seeAlso">cubrid_seq_put()</a> - Update the element value of sequence type column using OID</span></li>  
    </ul>
   </p>
   </div>
@@ -122,7 +149,7 @@
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-prepare.html">cubrid_prepare</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-real-escape-string.html">cubrid_real_escape_string</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-query.html">cubrid_query</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

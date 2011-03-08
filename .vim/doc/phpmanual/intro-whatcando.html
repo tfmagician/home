@@ -67,27 +67,19 @@
     </ul>
    </p>
    <p class="para">
-    PHP can be used on all major operating systems, including
+    PHP can be <a href="install.html" class="link">used</a> on all major operating systems, including
     Linux, many Unix variants (including HP-UX, Solaris and OpenBSD),
     Microsoft Windows, Mac OS X, RISC OS, and probably others.
     PHP has also support for most of the web servers today. This
-    includes Apache, Microsoft Internet Information Server,
-    Personal Web Server, Netscape and iPlanet servers, Oreilly
-    Website Pro server, Caudium, Xitami, OmniHTTPd, and many
-    others. For the majority of the servers, PHP has a module,
-    for the others supporting the CGI standard, PHP can work
-    as a CGI processor.
+    includes Apache, IIS, and many others. And this includes any
+    web server that can utilize the FastCGI PHP binary, like lighttpd
+    and nginx. PHP works as either a module, or as a CGI processor.
    </p>
    <p class="para">
     So with PHP, you have the freedom of choosing an operating
     system and a web server. Furthermore, you also have the choice
     of using procedural programming or object oriented
-    programming, or a mixture of them. Although not every
-    standard OOP feature is implemented in PHP 4,
-    many code libraries and large applications (including
-    the PEAR library) are written only using OOP code. PHP 5 fixes the
-    OOP related weaknesses of PHP 4, and introduces a complete object
-    model.
+    programming (OOP), or a mixture of them both.
    </p>
    <p class="para">
     With PHP you are not limited to output HTML. PHP&#039;s abilities
@@ -100,40 +92,14 @@
    </p>
    <p class="para">
     One of the strongest and most significant features in PHP is its
-    support for a wide range of databases. Writing a database-enabled
-    web page is incredibly simple. The following databases are currently
-    supported:
-    <blockquote class="blockquote">
-     <ul class="simplelist">
-      <li class="member">Adabas D</li>
-      <li class="member">dBase</li>
-      <li class="member">Empress</li>
-      <li class="member">FilePro (read-only)</li>
-      <li class="member">Hyperwave</li>
-      <li class="member">IBM DB2</li>
-      <li class="member">Informix</li>
-      <li class="member">Ingres</li>
-      <li class="member">InterBase</li>
-      <li class="member">FrontBase</li>
-      <li class="member">mSQL</li>
-      <li class="member">Direct MS-SQL</li>
-      <li class="member">MySQL</li>
-      <li class="member">ODBC</li>
-      <li class="member">Oracle (OCI7 and OCI8)</li>
-      <li class="member">Ovrimos</li>
-      <li class="member">PostgreSQL</li>
-      <li class="member">SQLite</li>
-      <li class="member">Solid</li>
-      <li class="member">Sybase</li>
-      <li class="member">Velocis</li>
-      <li class="member">Unix dbm</li>
-     </ul>
-    </blockquote>
-    We also have a database abstraction extension (named PDO) allowing you
-    to transparently use any database supported by that extension.
-    Additionally PHP supports ODBC, the Open Database Connection
-    standard, so you can connect to any other database supporting
-    this world standard.
+    support for a <a href="refs.database.html" class="link">wide range of databases</a>. 
+    Writing a database-enabled web page is incredibly simple using one of
+    the database specific extensions (e.g., for <a href="book.mysqli.html" class="link">mysql</a>),
+    or using an abstraction layer like <a href="book.pdo.html" class="link">PDO</a>, or connect
+    to any database supporting the Open Database Connection standard via the
+    <a href="book.uodbc.html" class="link">ODBC</a> extension. Other databases may utilize
+    <a href="book.curl.html" class="link">cURL</a> or <a href="book.sockets.html" class="link">sockets</a>,
+    like CouchDB.
    </p>
    <p class="para">
     PHP also has support for talking to other services using protocols
@@ -143,23 +109,21 @@
     complex data exchange between virtually all Web programming
     languages. Talking about interconnection, PHP has support for
     instantiation of Java objects and using them transparently
-    as PHP objects. You can also use our CORBA extension to
-    access remote objects.
+    as PHP objects.
    </p>
    <p class="para">
-    PHP has extremely useful text processing features, from the
-    POSIX Extended or Perl regular expressions to parsing XML
-    documents. For parsing and accessing XML documents, PHP 4
-    supports the SAX and DOM standards, and you can also use the
-    XSLT extension to transform XML documents. PHP 5 standardizes
-    all the XML extensions on the solid base of libxml2 and extends
-    the feature set adding SimpleXML and XMLReader support.
+    PHP has useful <a href="refs.basic.text.html" class="link">text processing</a> features,
+    which includes the Perl compatible regular expressions (<a href="book.pcre.html" class="link">PCRE</a>),
+    and many extensions and tools to <a href="refs.xml.html" class="link">parse and access XML documents</a>.
+    PHP standardizes all of the XML extensions on the solid base of <a href="book.libxml.html" class="link">libxml2</a>,
+    and extends the feature set adding <a href="book.simplexml.html" class="link">SimpleXML</a>,
+    <a href="book.xmlreader.html" class="link">XMLReader</a> and <a href="book.xmlwriter.html" class="link">XMLWriter</a> support.
    </p>
    <p class="para">
-    At last but not least, we have many other interesting
-    extensions, the mnoGoSearch search engine functions,
-    the IRC Gateway functions, many compression utilities
-    (gzip, bz2, zip), calendar conversion, translation...
+    And many other interesting extensions exist, which are categorized both
+    <a href="extensions.html" class="link">alphabetically</a> and by <a href="funcref.html" class="link">category</a>.
+    And there are additional PECL extensions that may or may not be documented
+    within the PHP manual itself, like <a href="http://xdebug.org/" class="link external">&raquo; XDebug</a>.
    </p>
    <p class="para">
     As you can see this page is not enough to list all

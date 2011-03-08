@@ -2,18 +2,18 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Returns the maximum length of the specified field</title>
+  <title>Get the maximum length of the specified field</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-field-flags.html">cubrid_field_flags</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-field-name.html">cubrid_field_name</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.cubrid-field-len" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">cubrid_field_len</h1>
-  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_field_len</span> &mdash; <span class="dc-title">Returns the maximum length of the specified field</span></p>
+  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_field_len</span> &mdash; <span class="dc-title">Get the maximum length of the specified field</span></p>
 
  </div>
 
@@ -21,7 +21,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">int</span> <span class="methodname"><b>cubrid_field_len</b></span>
-    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$req_identifier</tt></span>
+    ( <span class="methodparam"><span class="type">resource</span> <tt class="parameter">$result</tt></span>
    , <span class="methodparam"><span class="type">int</span> <tt class="parameter">$field_offset</tt></span>
    )</div>
 
@@ -38,9 +38,9 @@
 
     <dt>
 
-  <span class="term"><i><tt class="parameter">req_identifier</tt></i></span>
-  <dd>
-<p class="para">This is the request identifier.</p></dd>
+    <span class="term"><i><tt class="parameter">result</tt></i></span>
+    <dd>
+<p class="para"><i><tt class="parameter">result</tt></i> comes from a call to <span class="function"><a href="function.cubrid-execute.html" class="function">cubrid_execute()</a></span></p></dd>
 
    </dt>
 
@@ -75,7 +75,7 @@
    <p><b>Example #1 <span class="function"><b>cubrid_field_len()</b></span> example</b></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;&nbsp;$link&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">30000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb2"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"dba"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!</span><span style="color: #0000BB">$link</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Could&nbsp;not&nbsp;connect.'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'SELECT&nbsp;id,&nbsp;name,&nbsp;address,&nbsp;salary&nbsp;FROM&nbsp;employees'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$link</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$length&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_field_len</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Length&nbsp;of&nbsp;NAME&nbsp;field&nbsp;is&nbsp;"</span><span style="color: #007700">.</span><span style="color: #0000BB">$length</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">cubrid_close_request</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33000</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;game&nbsp;WHERE&nbsp;host_year=2004&nbsp;AND&nbsp;nation_code='AUS'&nbsp;AND&nbsp;medal='G'"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$column_names&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_column_names</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$column_types&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_column_types</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%-30s&nbsp;%-15s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Column&nbsp;Names"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Column&nbsp;Types"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Column&nbsp;Maxlen"</span><span style="color: #007700">);<br />for(</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$size&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">count</span><span style="color: #007700">(</span><span style="color: #0000BB">$column_names</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">$size</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$column_len&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_field_len</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"%-30s&nbsp;%-30s&nbsp;%-15s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$column_names</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$column_types</span><span style="color: #007700">[</span><span style="color: #0000BB">$i</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$column_len</span><span style="color: #007700">);&nbsp;<br />}<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -83,8 +83,14 @@
     <div class="example-contents"><p>The above example will output:</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-Result:
-Length of NAME field is 256
+Column Names                   Column Types                   Column Maxlen  
+host_year                      integer                        11             
+event_code                     integer                        11             
+athlete_code                   integer                        11             
+stadium_code                   integer                        11             
+nation_code                    char(3)                        3              
+medal                          char(1)                        1              
+game_date                      date                           10             
 </pre></div>
     </div>
   </div>
@@ -94,6 +100,6 @@ Length of NAME field is 256
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-field-flags.html">cubrid_field_flags</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-field-name.html">cubrid_field_name</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

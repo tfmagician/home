@@ -28,7 +28,7 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-   This function parses an XML file into 2 parallel array structures, one
+   This function parses an XML string into 2 parallel array structures, one
    (<i><tt class="parameter">index</tt></i>) containing pointers to the location of the
    appropriate values in the <i><tt class="parameter">values</tt></i> array. These last
    two parameters must be passed by reference.
@@ -47,6 +47,7 @@
      <dd>
 
       <p class="para">
+       A reference to the XML parser.
       </p>
      </dd>
 
@@ -58,6 +59,7 @@
      <dd>
 
       <p class="para">
+       A string containing the XML data.
       </p>
      </dd>
 
@@ -69,6 +71,7 @@
      <dd>
 
       <p class="para">
+       An array containing the values of the XML data
       </p>
      </dd>
 
@@ -80,6 +83,7 @@
      <dd>
 
       <p class="para">
+       An array containing pointers to the location of the appropriate values in the $values.
       </p>
      </dd>
 

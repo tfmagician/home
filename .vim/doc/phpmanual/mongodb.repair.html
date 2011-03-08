@@ -25,6 +25,24 @@
    [, <span class="methodparam"><span class="type">bool</span> <tt class="parameter">$backup_original_files</tt><span class="initializer"> = <b><tt>FALSE</tt></b></span></span>
   ]] )</div>
 
+  <p class="para rdfs-comment">
+   This creates a fresh copy of all database data.  It will remove any corrupt 
+   data and compact and large stretches of free space it finds.  This is a very
+   slow operation on a large database.
+  </p>
+  <p class="para">
+   This is usually run from the shell or the command line, not the driver.
+  </p>
+  <p class="para">  
+   It is equivalent to the function:
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">repair</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">command</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'repairDatabase'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </p>
  </div>
 
 

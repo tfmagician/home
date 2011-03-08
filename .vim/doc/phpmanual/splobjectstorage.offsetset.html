@@ -22,8 +22,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><b>SplObjectStorage::offsetSet</b></span>
     ( <span class="methodparam"><span class="type">object</span> <tt class="parameter">$object</tt></span>
-   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$info</tt></span>
-   )</div>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <tt class="parameter">$data</tt><span class="initializer"> = <b><tt>NULL</tt></b></span></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    Associate data to an <span class="type"><a href="language.types.object.html" class="type object">object</a></span> in the storage.
@@ -55,7 +55,7 @@
 
     <dt>
 
-     <span class="term"><i><tt class="parameter">info</tt></i></span>
+     <span class="term"><i><tt class="parameter">data</tt></i></span>
      <dd>
 
       <p class="para">
@@ -107,6 +107,7 @@ string(5) &quot;hello&quot;
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"> <span class="methodname"><a href="splobjectstorage.attach.html" class="methodname" rel="rdfs-seeAlso">SplObjectStorage::attach()</a> - Adds an object in the storage</span></li>
     <li class="member"> <span class="methodname"><a href="splobjectstorage.offsetget.html" class="methodname" rel="rdfs-seeAlso">SplObjectStorage::offsetGet()</a> - Returns the data associated with an object</span></li>
     <li class="member"> <span class="methodname"><a href="splobjectstorage.offsetexists.html" class="methodname" rel="rdfs-seeAlso">SplObjectStorage::offsetExists()</a> - Checks whether an object exists in the storage</span></li>
     <li class="member"> <span class="methodname"><a href="splobjectstorage.offsetunset.html" class="methodname" rel="rdfs-seeAlso">SplObjectStorage::offsetUnset()</a> - Removes an object from the storage</span></li>

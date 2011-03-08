@@ -2,18 +2,18 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Is used to get the class name</title>
+  <title>Get the class name using OID</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-get-charset.html">cubrid_get_charset</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-get-client-info.html">cubrid_get_client_info</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.cubrid-get-class-name" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">cubrid_get_class_name</h1>
-  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_get_class_name</span> &mdash; <span class="dc-title">Is used to get the class name</span></p>
+  <p class="verinfo">(PECL CUBRID &gt;= 8.3.0)</p><p class="refpurpose"><span class="refname">cubrid_get_class_name</span> &mdash; <span class="dc-title">Get the class name using OID</span></p>
 
  </div>
 
@@ -26,7 +26,8 @@
    )</div>
 
   <p class="para rdfs-comment">
-    The <span class="function"><b>cubrid_get_class_name()</b></span> function is used to get the class name from <i><tt class="parameter">oid</tt></i>.
+    The <span class="function"><b>cubrid_get_class_name()</b></span> function is used to get the
+    class name from <i><tt class="parameter">oid</tt></i>.
   </p>
  </div>
 
@@ -36,19 +37,19 @@
   <p class="para">
   <dl>
 
-    <dt>
+   <dt>
 
-  <span class="term"><i><tt class="parameter">conn_identifier</tt></i></span>
-  <dd>
+    <span class="term"><i><tt class="parameter">conn_identifier</tt></i></span>
+    <dd>
 <p class="para">Connection identifier.</p></dd>
 
    </dt>
 
    <dt>
 
-  <span class="term"><i><tt class="parameter">oid</tt></i></span>
-  <dd>
-<p class="para">Oid of the instance that you want to check the existence.</p></dd>
+    <span class="term"><i><tt class="parameter">oid</tt></i></span>
+    <dd>
+<p class="para">OID of the instance that you want to check the existence.</p></dd>
 
    </dt>
 
@@ -75,11 +76,17 @@
    <p><b>Example #1 <span class="function"><b>cubrid_get_class_name()</b></span> example</b></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$target_oid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"customer"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$class_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_class_name&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">$con</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$target_oid</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$class_name</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"class&nbsp;name&nbsp;of&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #DD0000">&nbsp;is&nbsp;</span><span style="color: #0000BB">$class_name</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"error\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">33088</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"demodb"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$req&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_execute</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;code"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">CUBRID_INCLUDE_OID</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$oid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_current_oid</span><span style="color: #007700">(</span><span style="color: #0000BB">$req</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$class_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">cubrid_get_class_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$oid</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$class_name</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">cubrid_disconnect</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
+    <div class="example-contents"><p>The above example will output:</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+code
+</pre></div>
+   </div>
   </div>
  </div>
 
@@ -88,8 +95,8 @@
   <h3 class="title">See Also</h3>
   <p class="para">
    <ul class="simplelist">
-   <li class="member"><span class="function"><a href="function.cubrid-is-instance.html" class="function" rel="rdfs-seeAlso">cubrid_is_instance()</a> - Is used to check whether the instance</span></li>
-   <li class="member"><span class="function"><a href="function.cubrid-drop.html" class="function" rel="rdfs-seeAlso">cubrid_drop()</a> - Is used to delete an instance</span></li>
+   <li class="member"><span class="function"><a href="function.cubrid-is-instance.html" class="function" rel="rdfs-seeAlso">cubrid_is_instance()</a> - Check whether the instance pointed by OID exists</span></li>
+   <li class="member"><span class="function"><a href="function.cubrid-drop.html" class="function" rel="rdfs-seeAlso">cubrid_drop()</a> - Delete an instance using OID</span></li>
    </ul>
   </p>
   </div>
@@ -97,6 +104,6 @@
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.cubrid-get-charset.html">cubrid_get_charset</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.cubrid-get-client-info.html">cubrid_get_client_info</a></div>
- <div class="up"><a href="ref.cubrid.html">Cubrid Functions</a></div>
+ <div class="up"><a href="ref.cubrid.html">CUBRID Functions</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

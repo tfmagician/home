@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.remove.html">MongoCollection::remove</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mongocollection.--tostring.html">MongoCollection::__toString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongocollection.setslaveokay.html">MongoCollection::setSlaveOkay</a></div>
  <div class="up"><a href="class.mongocollection.html">MongoCollection</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="mongocollection.save" class="refentry">
@@ -101,6 +101,18 @@
           and will override setting <i>safe</i> to <b><tt>FALSE</tt></b>.
          </p>
         </li>
+        <li class="listitem">
+         <p class="para">
+          <i>&quot;timeout&quot;</i>
+         </p>
+         <p class="para">
+          Integer, defaults to <i>MongoCursor::$timeout</i>.  If 
+          &quot;safe&quot; is set, this sets how long (in milliseconds) for the client to
+          wait for a database response.  If the database does not respond within
+          the timeout period, a <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a>
+          will be thrown.
+         </p>
+        </li>
        </ul>
       </p>
      </dd>
@@ -131,8 +143,9 @@
   </p>
   <p class="para">
    Throws <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> if the &quot;safe&quot; 
-   option is set to a value greater than one and the database cannot replicate 
-   the operation in <i>MongoCollection::$wtimeout</i> milliseconds.
+   option is set and the operation takes longer than 
+   <var class="varname"><var class="varname">MongoCursor::$timeout</var></var> milliseconds to complete.  This does
+   not kill the operation on the server, it is a client-side timeout.
   </p>
  </div>
 
@@ -173,6 +186,13 @@
        </td>
       </tr>
 
+      <tr valign="middle">
+       <td align="left">1.2.0</td>
+       <td align="left">
+        Added timeout option.
+       </td>
+      </tr>
+
      </tbody>
     
    </table>
@@ -198,7 +218,7 @@
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.remove.html">MongoCollection::remove</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mongocollection.--tostring.html">MongoCollection::__toString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongocollection.setslaveokay.html">MongoCollection::setSlaveOkay</a></div>
  <div class="up"><a href="class.mongocollection.html">MongoCollection</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

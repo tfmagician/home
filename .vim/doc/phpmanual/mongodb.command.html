@@ -20,7 +20,7 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><b>MongoDB::command</b></span>
-    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$data</tt></span>
+    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$command</tt></span>
    )</div>
 
   <p class="para rdfs-comment">
@@ -29,7 +29,7 @@
    There&#039;s a command for that.  Need to turn up logging?  You get the idea.
   </p>
   <p class="para">
-   This method is identical to the function:
+   This method is identical to:
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">command</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">selectCollection</span><span style="color: #007700">(</span><span style="color: #DD0000">'$cmd'</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">findOne</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
@@ -48,7 +48,7 @@
     <dt>
 
      <span class="term">
-      <i><tt class="parameter">data</tt></i>
+      <i><tt class="parameter">command</tt></i>
      </span>
      <dd>
 
@@ -63,6 +63,37 @@
 
   </p>
  </div>
+
+
+ <div class="refsect1 changelog">
+  <h3 class="title">Changelog</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead valign="middle">
+      <tr valign="middle">
+       <th>Version</th>
+       <th>Description</th>
+      </tr>
+
+     </thead>
+
+     <tbody valign="middle" class="tbody">
+      <tr valign="middle">
+       <td align="left">1.2.0</td>
+       <td align="left">
+        Added <i>options</i> parameter with a single option: 
+        <i>timeout</i>.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
 
  <div class="refsect1 returnvalues">
   <h3 class="title">Return Values</h3>  

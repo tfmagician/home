@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="pcre.pattern.html">PCRE Patterns</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="regexp.reference.performance.html">Performance</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="reference.pcre.pattern.differences.html">Differences From Perl</a></div>
  <div class="up"><a href="pcre.pattern.html">PCRE Patterns</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -116,10 +116,19 @@
         Single quotes, double quotes, backslashes (<i>\</i>) and NULL chars will 
         be escaped by backslashes in substituted backreferences.
        </span>
-       <p class="para">
-        Only <span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span> uses this modifier;
-        it is ignored by other PCRE functions.
-       </p>
+       <div class="tip"><b class="tip">Tip</b>
+        <p class="para">
+         Make sure that <i><tt class="parameter">replacement</tt></i> constitutes a valid PHP code string,
+         otherwise PHP will complain about a parse error at the line containing
+         <span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span>.
+        </p>
+       </div>
+       <blockquote><p><b class="note">Note</b>: 
+        <p class="para">
+         Only <span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span> uses this modifier;
+         it is ignored by other PCRE functions.
+        </p>
+       </p></blockquote>
       </dd>
 
      </dt>
@@ -190,6 +199,12 @@
         the pattern</a> or by a question mark behind a quantifier (e.g.
         <i>.*?</i>).
        </span>
+       <blockquote><p><b class="note">Note</b>: 
+        <p class="para">
+         It is usually not possible to match more than <a href="pcre.configuration.html#ini.pcre.backtrack-limit" class="link">pcre.backtrack_limit</a>
+         characters in ungreedy mode.
+        </p>
+       </p></blockquote>
       </dd>
 
      </dt>
@@ -248,7 +263,7 @@
   </p>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="pcre.pattern.html">PCRE Patterns</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="regexp.reference.performance.html">Performance</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="reference.pcre.pattern.differences.html">Differences From Perl</a></div>
  <div class="up"><a href="pcre.pattern.html">PCRE Patterns</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

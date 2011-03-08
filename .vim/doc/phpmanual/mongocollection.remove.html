@@ -21,9 +21,9 @@
   <h3 class="title">Description</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><b>MongoCollection::remove</b></span>
-    ( <span class="methodparam"><span class="type">array</span> <tt class="parameter">$criteria</tt></span>
+    ([ <span class="methodparam"><span class="type">array</span> <tt class="parameter">$criteria</tt><span class="initializer"> = array()</span></span>
    [, <span class="methodparam"><span class="type">array</span> <tt class="parameter">$options</tt><span class="initializer"> = array()</span></span>
-  ] )</div>
+  ]] )</div>
 
  </div>
 
@@ -105,6 +105,18 @@
           and will override setting <i>safe</i> to <b><tt>FALSE</tt></b>.
          </p>
         </li>
+        <li class="listitem">
+         <p class="para">
+          <i>&quot;timeout&quot;</i>
+         </p>
+         <p class="para">
+          Integer, defaults to <i>MongoCursor::$timeout</i>.  If 
+          &quot;safe&quot; is set, this sets how long (in milliseconds) for the client to
+          wait for a database response.  If the database does not respond within
+          the timeout period, a <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a>
+          will be thrown.
+         </p>
+        </li>
        </ul>
       </p>
      </dd>
@@ -136,8 +148,9 @@
   </p>
   <p class="para">
    Throws <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> if the &quot;safe&quot; 
-   option is set to a value greater than one and the database cannot replicate 
-   the operation in <i>MongoCollection::$wtimeout</i> milliseconds.
+   option is set and the operation takes longer than 
+   <var class="varname"><var class="varname">MongoCursor::$timeout</var></var> milliseconds to complete.  This does
+   not kill the operation on the server, it is a client-side timeout.
   </p>
  </div>
 
@@ -177,6 +190,13 @@
        <td align="left">1.0.11</td>
        <td align="left">
         Disconnects on &quot;not master&quot; errors if &quot;safe&quot; is set.
+       </td>
+      </tr>
+
+      <tr valign="middle">
+       <td align="left">1.2.0</td>
+       <td align="left">
+        Added timeout option.
        </td>
       </tr>
 
