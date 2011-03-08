@@ -48,6 +48,14 @@ nnoremap <silent> tc :<C-u>tabnew<CR>:tabmove<CR>
 nnoremap <silent> tk :<C-u>tabclose<CR>
 nnoremap <silent> tn :<C-u>tabnext<CR>
 nnoremap <silent> tp :<C-u>tabprevious<CR>
+"""""""""""""""""""""""""""""
+" Git section
+"""""""""""""""""""""""""""""
+nnoremap <silent> gs :<C-u>Git status<CR>
+nnoremap <silent> gd :<C-u>GitDiff<CR>
+nnoremap <silent> gc :<C-u>Git status<CR>:GitCommit<CR>
+nnoremap <silent> ga :<C-u>GitAdd -A<CR>:Git status<CR>
+
 
 """"""""""""""""""""""""""""""
 " Python section
