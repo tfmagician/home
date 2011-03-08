@@ -38,6 +38,9 @@ set foldmethod=indent
 set foldcolumn=1
 set foldnestmax=2
 set foldlevelstart=1
+" Windows settings
+set winheight=28
+set winwidth=120
 
 """"""""""""""""""""""""""""""
 " Python section
