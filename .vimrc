@@ -33,6 +33,11 @@ autocmd BufWritePre * call RTrim()
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+" Enable hoding
+set foldmethod=indent
+set foldcolumn=1
+set foldnestmax=2
+set foldlevelstart=1
 
 """"""""""""""""""""""""""""""
 " Python section
