@@ -38,9 +38,16 @@ set foldmethod=indent
 set foldcolumn=1
 set foldnestmax=2
 set foldlevelstart=1
+set foldminlines=3
 " Windows settings
 set winheight=28
 set winwidth=120
+" Tab settings
+set showtabline=2
+nnoremap <silent> tc :<C-u>tabnew<CR>:tabmove<CR>
+nnoremap <silent> tk :<C-u>tabclose<CR>
+nnoremap <silent> tn :<C-u>tabnext<CR>
+nnoremap <silent> tp :<C-u>tabprevious<CR>
 
 """"""""""""""""""""""""""""""
 " Python section

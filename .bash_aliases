@@ -43,8 +43,11 @@ alias free='free -m'
 # Shortcuts
 ###############################################################
 
+# open argument-list as tab.
+alias vi='vi -p'
+alias vim='vim -p'
 # Shortcut to edit the hosts file.
-alias ehosts='sudo vi /etc/hosts'
+alias hosts-vi='sudo vi /etc/hosts'
 # Shortcuts for cakephp.
 alias cake-clean-cache="find ./tmp/cache -type f -name 'cake_*' -exec rm {} \;"
 alias cake-fixtures="cd ./tests/fixtures"
