@@ -48,6 +48,18 @@ nnoremap <silent> tc :<C-u>tabnew<CR>:tabmove<CR>
 nnoremap <silent> tk :<C-u>tabclose<CR>
 nnoremap <silent> tn :<C-u>tabnext<CR>
 nnoremap <silent> tp :<C-u>tabprevious<CR>
+nnoremap <C-n> :<C-u>tabnext<CR>
+nnoremap <C-p> :<C-u>tabprevious<CR>
+" Paging settings
+noremap <C-j> <C-f>
+noremap <C-k> <C-b>
+" Insert empty line
+nnoremap O :<C-u>call append(expand('.'), '')<CR>j
+" Toggle settings
+nnoremap si :set autoindent!<CR>:set autoindent?<CR>
+nnoremap sn :set number!<CR>:set number?<CR>
+" Editing shortcuts
+nnoremap <silent> <Space>ev  :<C-u>edit $MYVIMRC<CR>
 """""""""""""""""""""""""""""
 " Git section
 """""""""""""""""""""""""""""
