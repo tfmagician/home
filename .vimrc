@@ -58,6 +58,7 @@ nnoremap O :<C-u>call append(expand('.'), '')<CR>j
 " Toggle settings
 nnoremap si :set autoindent!<CR>:set autoindent?<CR>
 nnoremap sn :set number!<CR>:set number?<CR>
+nnoremap sf :set foldenable!<CR>:set foldenable?<CR>
 " Editing shortcuts
 nnoremap <silent> <Space>ev  :<C-u>edit $MYVIMRC<CR>
 """""""""""""""""""""""""""""
