@@ -61,6 +61,8 @@ nnoremap sn :set number!<CR>:set number?<CR>
 nnoremap sf :set foldenable!<CR>:set foldenable?<CR>
 " Editing shortcuts
 nnoremap <silent> <Space>ev  :<C-u>edit $MYVIMRC<CR>
+" Quick run
+nnoremap <silent> qr :<C-u>QuickRun<CR>
 """""""""""""""""""""""""""""
 " Git section
 """""""""""""""""""""""""""""
