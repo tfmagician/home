@@ -1,3 +1,8 @@
+# use zsh
+if [ -f /bin/zsh ]; then
+    exec /bin/zsh
+fi
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
