@@ -1,10 +1,10 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
 # use zsh
 if [ -f /bin/zsh ]; then
     exec /bin/zsh
 fi
-
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
 
 # load git-completion.bash for Mac OS X
 if [ -f /usr/local/git/share/git-completion ]; then
