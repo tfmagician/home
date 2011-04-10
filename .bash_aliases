@@ -48,6 +48,8 @@ alias vi='vi -p'
 alias vim='vim -p'
 # Shortcut to edit the hosts file.
 alias hosts-vi='sudo vi /etc/hosts'
+# Shortcuts for Python
+alias python-clean-cache="find ./ -name '*.pyc' -exec rm {} \;"
 # Shortcuts for cakephp.
 alias cake-clean-cache="find ./tmp/cache -type f -name 'cake_*' -exec rm {} \;"
 alias cake-fixtures="cd ./tests/fixtures"
