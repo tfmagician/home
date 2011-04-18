@@ -70,6 +70,11 @@ alias bergmenn-checkstyle="phpcs --standard=Bergmenn --ignore=vendors,plugins,te
 alias logging-commands="script `date +%Y%m%d%H%M%S`.log"
 # grep for line encoding.
 alias grep-crlf='grep -UIlr ""'
+# Shortcuts for git.
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gd="git diff"
 
 ###############################################################
 # Functions
