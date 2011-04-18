@@ -47,6 +47,7 @@ precmd () {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
 }
 export PS1="${green}%n@%m${NOCOLOR}:${blue}%~%1(v|%F${YELLOW}%1v%f|)${NOCOLOR}$ "
 export PS2="%_> "
