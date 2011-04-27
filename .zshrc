@@ -68,5 +68,6 @@ setopt auto_pushd
 setopt correct
 setopt nolistbeep
 setopt list_packed
+setopt extended_history
 
 . ~/.bash_aliases
