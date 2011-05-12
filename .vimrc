@@ -62,6 +62,7 @@ set showtabline=2
 nnoremap <silent> tt :<C-u>tabnew<CR>:tabmove<CR>
 nnoremap <C-n> :<C-u>tabnext<CR>
 nnoremap <C-p> :<C-u>tabprevious<CR>
+nnoremap te :tabedit<Space>
 
 """""""""""""""""""""""""""""
 " Git section
@@ -94,6 +95,9 @@ au FileType python map <buffer> <leader>D ?def
 """"""""""""""""""""""""""""""
 " Quit
 nnoremap qq :q<CR>
+nnoremap QQ :q!<CR>
+" Edit another file
+nnoremap ee :tabedit ./<CR>
 " Insert empty line
 nnoremap O :<C-u>call append(expand('.'), '')<CR>j
 " Quick run
