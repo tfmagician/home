@@ -3,6 +3,8 @@
 """"""""""""""""""""""""""""""
 " Call pathogen and manage plugin paths.
 call pathogen#runtime_append_all_bundles()
+" Setting for Align.vim for using Japanese.
+let g:Align_xstrlen = 3
 
 """"""""""""""""""""""""""""""
 " Indent section
@@ -98,10 +100,17 @@ nnoremap qq :q<CR>
 nnoremap QQ :q!<CR>
 " Edit another file
 nnoremap ee :tabedit ./<CR>
+" Edit the file as sudoer
+nnoremap su :e sudo:%<CR>
 " Insert empty line
 nnoremap O :<C-u>call append(expand('.'), '')<CR>j
 " Quick run
 nnoremap <silent> qr :<C-u>QuickRun<CR>
+" Edit rc files and hosts
+command -nargs=0 Evimrc   :e ~/.vimrc
+command -nargs=0 Ezshrc   :e ~/.zshrc
+command -nargs=0 Ebashrc  :e ~/.bashrc
+command -nargs=0 Ehosts   :e sudo:/etc/hosts
 
 """"""""""""""""""""""""""""""
 " Automate editing
