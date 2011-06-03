@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/vim-ref-jquery"]
 	path = .vim/bundle/vim-ref-jquery
     url = https://github.com/soh335/vim-ref-jquery.git
+[submodule ".vim/bundle/vimshell"]
+	path = .vim/bundle/vimshell
+	url = https://github.com/Shougo/vimshell.git
