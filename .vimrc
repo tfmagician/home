@@ -67,6 +67,17 @@ nnoremap <C-p> :<C-u>tabprevious<CR>
 nnoremap te :tabedit<Space>
 
 """""""""""""""""""""""""""""
+" Completion section
+"""""""""""""""""""""""""""""
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType java set omnifunc=javacomplete#Complete
+
+"""""""""""""""""""""""""""""
 " Git section
 """""""""""""""""""""""""""""
 nnoremap <silent> gs :<C-u>Git status<CR>
@@ -91,6 +102,14 @@ au FileType python map <buffer> <leader>1 /class
 au FileType python map <buffer> <leader>2 /def
 au FileType python map <buffer> <leader>C ?class
 au FileType python map <buffer> <leader>D ?def
+
+""""""""""""""""""""""""""""""
+" XML section
+""""""""""""""""""""""""""""""
+augroup MyXML
+    autocmd!
+    autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+augroup END
 
 """"""""""""""""""""""""""""""
 " Some useful shortcuts
